@@ -49,11 +49,11 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* 2. 히어로 섹션 (서울대 마크 배경 투영 버전) */}
+      {/* 2. 히어로 섹션 (서울대 마크 위치 조정 완료) */}
       <section className="relative pt-60 pb-32 px-6 bg-gradient-to-b from-blue-50/40 to-white overflow-hidden">
         
-        {/* 🌟 배경에 크게 투영되는 서울대 마크 🌟 */}
-        <div className="absolute right-[-10%] top-[20%] w-[500px] h-[500px] opacity-[0.04] pointer-events-none rotate-12">
+        {/* 🌟 배경 마크 위치 수정: 오른쪽 끝에서 가운데 쪽으로 이동 🌟 */}
+        <div className="absolute right-[5%] md:right-[15%] top-[25%] w-[400px] h-[400px] md:w-[550px] md:h-[550px] opacity-[0.035] pointer-events-none rotate-[15deg]">
           <img 
             src="/snu-logo.png" 
             alt="" 
@@ -62,13 +62,13 @@ export default function Home() {
         </div>
 
         <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 mb-10 rounded-full bg-white text-blue-900 text-[11px] font-black tracking-[0.25em] shadow-md border border-blue-100 uppercase">
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 mb-10 rounded-full bg-white text-blue-900 text-[11px] font-black tracking-[0.3em] shadow-md border border-blue-100 uppercase">
              <img src="/snu-logo.png" alt="SNU" className="w-5 h-5 object-contain" />
              <span>SNU ALUMNUS 전문의 진료</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold text-slate-900 mb-10 leading-[1.1] tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-extrabold text-slate-900 mb-10 leading-[1.05] tracking-tighter">
             토·일 주말 진료, <br />
-            <span className="text-blue-900 font-extrabold drop-shadow-sm">서울대 출신 올인원 케어</span>
+            <span className="text-blue-900 drop-shadow-sm">서울대 출신 올인원 케어</span>
           </h2>
           <p className="text-xl text-slate-500 mb-14 leading-relaxed max-w-2xl mx-auto font-medium">
             임플란트부터 치아교정까지, 보건복지부 인증 전문의가 <br className="hidden md:block" />
@@ -93,7 +93,7 @@ export default function Home() {
               <img src="/doctor.jpg" alt="주호성 대표원장" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
             </div>
             <div className="mt-8 p-8 bg-blue-50 rounded-3xl border border-blue-100 text-center shadow-sm">
-               <p className="text-blue-900 font-bold leading-relaxed italic text-lg">
+               <p className="text-blue-900 font-bold leading-relaxed italic text-lg font-sans">
                  &quot;임플란트와 교정의 경계를 허무는 통합적 안목으로 <br/>
                  가장 효율적인 치료 계획을 제시합니다.&quot;
                </p>
@@ -106,14 +106,14 @@ export default function Home() {
             </h4>
             <div className="mb-10">
               <p className="text-blue-900 font-bold text-sm mb-5 tracking-widest uppercase border-l-4 border-blue-900 pl-3">학력 및 전문의</p>
-              <ul className="space-y-4 text-slate-700 text-[17px]">
+              <ul className="space-y-4 text-slate-700 text-[17px] font-sans">
                 <li className="flex items-center gap-3 font-semibold text-slate-900"><span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 서울대학교 졸업 / 치의학대학원 졸업</li>
                 <li className="flex items-center gap-3 font-semibold text-slate-900"><span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 서울대학교 치의학대학원 석사</li>
                 <li className="flex items-center gap-3 text-blue-900 font-extrabold italic"><span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 보건복지부 인증 통합치의학 전문의</li>
                 <li className="flex items-center gap-3 font-semibold text-slate-900"><span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 가톨릭대학교 임상치과대학원 치과교정학 전공</li>
               </ul>
             </div>
-            <div className="mb-10 p-7 bg-slate-50 rounded-3xl border border-slate-100">
+            <div className="mb-10 p-7 bg-slate-50 rounded-3xl border border-slate-100 font-sans">
               <p className="text-blue-900 font-bold text-[11px] mb-5 uppercase tracking-tighter">인증 및 연구 협력</p>
               <ul className="space-y-4 text-slate-700 text-sm font-medium">
                 <li className="flex items-center gap-3 font-bold text-slate-800 tracking-tight">● 오스템 임플란트 연구 자문 치과</li>
@@ -122,8 +122,8 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <p className="text-slate-400 font-bold text-[10px] mb-4 uppercase">학회 및 수료</p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-slate-500 text-[13px]">
+              <p className="text-slate-400 font-bold text-[10px] mb-4 uppercase font-sans">학회 및 수료</p>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-slate-500 text-[13px] font-sans">
                 <li>• 대한 통합치과학회 정회원</li>
                 <li>• 대한 치과보철학회 정회원</li>
                 <li>• 대한 악안면임플란트학회 정회원</li>
@@ -140,8 +140,8 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
             <div className="font-sans">
               <span className="text-blue-900 font-black text-xs uppercase tracking-[0.25em] mb-3 block italic">Medical Column</span>
-              <h3 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">대표원장이 직접 전하는 진료 이야기</h3>
-              <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-xl">
+              <h3 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight font-sans">대표원장이 직접 전하는 진료 이야기</h3>
+              <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-xl font-sans">
                 환자분들께 꼭 알려드리고 싶은 치아 건강 정보를 <br className="hidden md:block" />
                 전문의 주호성이 직접 한땀한땀 써내려갑니다.
               </p>
@@ -149,7 +149,7 @@ export default function Home() {
             <Link 
               href={BLOG_MAIN_URL} 
               target="_blank" 
-              className="group bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold text-sm hover:bg-blue-900 transition-all flex items-center gap-2 shadow-xl"
+              className="group bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold text-sm hover:bg-blue-900 transition-all flex items-center gap-2 shadow-xl font-sans"
             >
               블로그 전체보기 
               <span className="group-hover:translate-x-1 transition-transform font-serif">→</span>
@@ -159,11 +159,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {blogPosts.map((post, i) => (
               <Link key={i} href={post.link} target="_blank" className="group bg-white rounded-[2rem] overflow-hidden border border-slate-100 hover:border-blue-200 transition-all shadow-sm hover:shadow-2xl">
-                <div className="aspect-[16/10] bg-slate-100 flex items-center justify-center text-slate-300 italic group-hover:bg-blue-50 transition-colors font-black text-[10px] uppercase tracking-[0.3em]">Journal Article</div>
+                <div className="aspect-[16/10] bg-slate-100 flex items-center justify-center text-slate-300 italic group-hover:bg-blue-50 transition-colors font-black text-[10px] uppercase tracking-[0.3em] font-sans">Journal Article</div>
                 <div className="p-9">
-                  <span className="inline-block px-4 py-1.5 bg-blue-50 text-blue-900 text-[10px] font-black rounded-full mb-5 uppercase tracking-tighter">{post.category}</span>
-                  <h4 className="text-xl font-bold text-slate-800 mb-6 leading-snug group-hover:text-blue-900 transition-colors min-h-[4rem] tracking-tight">{post.title}</h4>
-                  <div className="flex justify-between items-center text-slate-400 text-[10px] uppercase font-black tracking-widest pt-6 border-t border-slate-50">
+                  <span className="inline-block px-4 py-1.5 bg-blue-50 text-blue-900 text-[10px] font-black rounded-full mb-5 uppercase tracking-tighter font-sans">{post.category}</span>
+                  <h4 className="text-xl font-bold text-slate-800 mb-6 leading-snug group-hover:text-blue-900 transition-colors min-h-[4rem] tracking-tight font-sans">{post.title}</h4>
+                  <div className="flex justify-between items-center text-slate-400 text-[10px] uppercase font-black tracking-widest pt-6 border-t border-slate-50 font-sans">
                     <span>{post.date}</span>
                     <span className="group-hover:text-blue-900 transition-colors italic">Read More +</span>
                   </div>
@@ -203,21 +203,21 @@ export default function Home() {
             <div>
               <div className="flex flex-col md:flex-row justify-between items-center border-b border-blue-50 pb-6 mb-10">
                 <h4 className="text-2xl font-black text-blue-900 tracking-tight italic uppercase">Clinic Hours</h4>
-                <div className="mt-3 md:mt-0 bg-red-50 text-red-600 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest">Closed on Thursday</div>
+                <div className="mt-3 md:mt-0 bg-red-50 text-red-600 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest tracking-tight">Closed on Thursday</div>
               </div>
               <div className="space-y-8 text-slate-600 font-sans px-2">
                 <div className="flex justify-between items-center py-2 border-b border-slate-50">
                   <span className="font-bold text-lg text-slate-400">월 화 수 금</span>
-                  <span className="font-black text-slate-900 text-xl tracking-tight">10:00 - 17:00</span>
+                  <span className="font-black text-slate-900 text-xl tracking-tight font-sans">10:00 - 17:00</span>
                 </div>
                 <div className="bg-blue-900 p-8 rounded-[2rem] text-white shadow-2xl shadow-blue-100 relative overflow-hidden group">
                   <div className="flex justify-between items-center mb-3">
                     <span className="font-black text-2xl tracking-tight uppercase italic underline decoration-white/30 decoration-4 underline-offset-8">Weekend Open</span>
-                    <span className="text-[10px] bg-white text-blue-900 px-3 py-1 rounded-full font-black uppercase tracking-widest">Full Day</span>
+                    <span className="text-[10px] bg-white text-blue-900 px-3 py-1 rounded-full font-black uppercase tracking-widest tracking-tight font-sans">Full Day</span>
                   </div>
                   <div className="flex justify-between items-end">
                     <p className="text-blue-100 text-sm font-bold leading-tight">토요일 일요일 <br />오후 4시까지 진료</p>
-                    <span className="font-black text-4xl tracking-tighter">10:00 - 16:00</span>
+                    <span className="font-black text-4xl tracking-tighter font-sans">10:00 - 16:00</span>
                   </div>
                 </div>
                 <p className="text-center text-slate-400 text-xs font-bold pt-4 tracking-tighter italic">※ 점심시간 없이 진료합니다. / 목요일 및 공휴일 휴진</p>
@@ -225,10 +225,10 @@ export default function Home() {
             </div>
             <div className="mt-14 p-10 bg-slate-900 rounded-[2rem] text-white flex justify-between items-center group cursor-pointer hover:bg-blue-900 transition-all shadow-2xl">
               <div>
-                <p className="text-blue-200 text-[11px] font-black uppercase tracking-[0.3em] mb-2">Registration No.</p>
-                <p className="text-3xl font-black tracking-tight underline decoration-blue-400 decoration-4 underline-offset-8 transform group-hover:scale-105 transition-transform">053-216-3636</p>
+                <p className="text-blue-200 text-[11px] font-black uppercase tracking-[0.3em] mb-2 font-sans">Registration No.</p>
+                <p className="text-3xl font-black tracking-tight underline decoration-blue-400 decoration-4 underline-offset-8 transform group-hover:scale-105 transition-transform font-sans">053-216-3636</p>
               </div>
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all border border-white/5">
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all border border-white/5 font-sans">
                 <span className="text-3xl">📞</span>
               </div>
             </div>
@@ -240,7 +240,7 @@ export default function Home() {
       <footer className="py-24 px-6 border-t border-slate-100 bg-white text-center font-sans">
         <div className="max-w-6xl mx-auto opacity-40">
            <p className="text-slate-900 font-black text-sm mb-3 italic tracking-widest">SEOUL HANS DENTAL CLINIC</p>
-           <p className="text-slate-400 text-[10px] font-bold leading-relaxed">
+           <p className="text-slate-400 text-[10px] font-bold leading-relaxed font-sans">
              대구광역시 동구 동부로 30길 12 3층 (대표: 주호성) | TEL: 053-216-3636 <br />
              © 2026 Seoul Hans Dental. All rights reserved.
            </p>
