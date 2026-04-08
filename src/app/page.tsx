@@ -8,19 +8,19 @@ export default function Home() {
   const blogPosts = [
     {
       title: "과잉진료 없는 정직한 치과를 찾는 3가지 기준",
-      date: "최근 포스트",
+      date: "2026.03.11",
       link: "https://blog.naver.com/seoulhansdental/224238671886",
       category: "진료철학"
     },
     {
       title: "대구 안심역 교정치과, 왜 전문의 진단이 필수일까?",
-      date: "추천 포스트",
+      date: "2026.03.05",
       link: "https://blog.naver.com/seoulhansdental/224227971814",
       category: "치아교정"
     },
     {
       title: "서울대 출신 전문의가 들려주는 올인원 진료 이야기",
-      date: "인기 포스트",
+      date: "2026.02.28",
       link: "https://blog.naver.com/seoulhansdental/224220900652",
       category: "공지사항"
     }
@@ -29,120 +29,130 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-blue-100 text-slate-900 overflow-x-hidden">
       
-      {/* 1. 상단 네비게이션 */}
-      <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-50/50 px-4 py-3 md:p-5">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
+      {/* 1. 상단 네비게이션 (서울블랑 스타일의 슬림&화이트) */}
+      <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 py-4 md:px-12">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href="/">
-            <h1 className="text-lg md:text-xl font-black text-blue-900 italic tracking-tighter">서울한스치과의원</h1>
+            <h1 className="text-xl md:text-2xl font-black text-blue-950 tracking-tighter italic">서울한스치과의원</h1>
           </Link>
-          <div className="flex items-center gap-3">
-             <Link 
-              href={NAVER_BOOKING_URL} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="bg-blue-900 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full text-[11px] md:text-xs font-bold shadow-lg"
-            >
-              실시간 예약
-            </Link>
+          <div className="hidden md:flex items-center gap-12 text-sm font-bold text-slate-600 tracking-tight">
+            <a href="#intro" className="hover:text-blue-900 transition-colors">의료진 소개</a>
+            <a href="#blog" className="hover:text-blue-900 transition-colors">진료 일지</a>
+            <a href="#location" className="hover:text-blue-900 transition-colors">오시는 길</a>
           </div>
+          <Link 
+            href={NAVER_BOOKING_URL} 
+            target="_blank" 
+            className="bg-blue-950 text-white px-6 py-2.5 rounded-full text-xs font-bold shadow-xl hover:bg-blue-800 transition-all"
+          >
+            실시간 예약
+          </Link>
         </div>
       </nav>
 
-      {/* 2. 히어로 섹션 */}
-      <section className="relative pt-32 pb-20 md:pt-60 md:pb-32 px-6 bg-gradient-to-b from-blue-50/40 to-white overflow-hidden text-center">
-        <div className="absolute right-[-5%] md:right-[15%] top-[15%] md:top-[20%] w-[350px] h-[350px] md:w-[550px] md:h-[550px] opacity-[0.035] pointer-events-none rotate-12">
+      {/* 2. 프리미엄 히어로 섹션 (와이드 디자인) */}
+      <section className="relative min-h-[90vh] flex items-center justify-center px-6 bg-[#f8f9fb] overflow-hidden">
+        {/* 배경에 투영되는 거대한 서울대 로고 */}
+        <div className="absolute right-[-10%] top-[10%] w-[600px] h-[600px] opacity-[0.03] pointer-events-none rotate-12">
           <img src="/snu-logo.png" alt="" className="w-full h-full object-contain" />
         </div>
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 mb-6 rounded-full bg-white text-blue-900 text-xs md:text-sm font-black tracking-tight shadow-md border border-blue-100">
+
+        <div className="max-w-5xl mx-auto text-center z-10">
+          <div className="inline-flex items-center gap-3 px-5 py-2 mb-10 rounded-full bg-white text-blue-950 text-xs md:text-sm font-black shadow-sm border border-slate-100 tracking-tighter">
              <img src="/snu-logo.png" alt="SNU" className="w-5 h-5 object-contain" />
              <span>서울대학교 출신 전문의 진료</span>
           </div>
-          <h2 className="text-4xl md:text-7xl font-extrabold text-slate-900 mb-6 md:mb-10 leading-tight tracking-tighter break-keep">
-            토·일 주말 진료, <br />
-            <span className="text-blue-900">서울대 출신 올인원 케어</span>
+          <h2 className="text-4xl md:text-[84px] font-black text-slate-900 mb-8 leading-[1.1] tracking-tighter">
+            일요일도 만나는 <br />
+            <span className="text-blue-950 underline decoration-blue-200 decoration-8 underline-offset-[12px]">품격 있는 진료</span>
           </h2>
-          <p className="text-base md:text-xl text-slate-500 mb-10 md:mb-14 leading-relaxed max-w-2xl mx-auto font-medium break-keep font-sans">
-            임플란트부터 치아교정까지, 보건복지부 인증 전문의가 <br className="hidden md:block" /> 처음부터 끝까지 책임지는 통합 진료를 약속드립니다.
+          <p className="text-base md:text-2xl text-slate-500 mb-14 leading-relaxed font-medium break-keep">
+            임플란트부터 교정까지, 보건복지부 인증 전문의가 <br className="hidden md:block" /> 처음부터 끝까지 정교하게 진료합니다.
           </p>
-          <Link href={NAVER_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-slate-900 text-white px-10 py-5 md:px-14 md:py-6 rounded-2xl font-bold text-base md:text-lg hover:bg-blue-900 transition-all shadow-xl active:scale-95 font-sans">
-            네이버 실시간 예약하기
-          </Link>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            <Link href={NAVER_BOOKING_URL} target="_blank" className="w-full md:w-auto bg-blue-950 text-white px-12 py-6 rounded-2xl font-bold text-lg shadow-2xl hover:bg-blue-800 transition-all active:scale-95">
+              네이버 실시간 예약
+            </Link>
+            <a href="tel:053-216-3636" className="w-full md:w-auto bg-white text-slate-900 border border-slate-200 px-12 py-6 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all">
+              전화 문의하기
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* 3. 의료진 소개 */}
-      <section id="intro" className="py-16 md:py-32 px-6 max-w-6xl mx-auto">
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-          <div className="w-full md:sticky md:top-32">
-            <div className="aspect-[4/5] md:aspect-[3/4] bg-slate-100 rounded-3xl overflow-hidden shadow-xl border-2 border-white relative group">
-              <img src="/doctor.jpg" alt="주호성 대표원장" className="w-full h-full object-cover" />
-            </div>
-            <div className="mt-6 p-6 bg-blue-50 rounded-2xl border border-blue-100 text-center">
-               <p className="text-blue-900 font-bold text-base md:text-lg leading-relaxed italic break-keep font-sans">
-                 &quot;임플란트와 교정의 경계를 허무는 통합적 안목으로 <br className="hidden md:block" />가장 효율적인 치료 계획을 제시합니다.&quot;
-               </p>
+      {/* 3. 의료진 소개 (서울블랑 스타일의 깔끔한 구성) */}
+      <section id="intro" className="py-24 md:py-48 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col md:grid md:grid-cols-12 gap-16 items-start">
+          <div className="md:col-span-5 w-full md:sticky md:top-32">
+            <div className="aspect-[3/4] bg-slate-100 rounded-[40px] overflow-hidden shadow-2xl border-[12px] border-white relative group">
+              <img src="/doctor.jpg" alt="주호성 대표원장" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
             </div>
           </div>
 
-          <div className="w-full pt-4 text-left">
-            <h3 className="text-blue-900 font-bold mb-3 tracking-widest text-xs uppercase font-sans">대표원장 소개</h3>
-            <h4 className="text-3xl md:text-4xl font-bold mb-8 text-slate-900 tracking-tight font-sans">주호성 대표원장</h4>
+          <div className="md:col-span-7 w-full pt-8">
+            <span className="text-blue-900 font-black text-sm tracking-[0.3em] uppercase mb-4 block">Medical Director</span>
+            <h4 className="text-4xl md:text-6xl font-black text-slate-900 mb-12 tracking-tight">주호성 대표원장</h4>
             
-            <div className="mb-10 font-sans">
-              <p className="text-blue-900 font-bold text-sm mb-5 tracking-widest uppercase border-l-4 border-blue-900 pl-3">학력 및 전문의</p>
-              <ul className="space-y-4 text-slate-700 text-base md:text-[17px] break-keep font-sans">
-                <li className="flex items-start gap-3 font-semibold"><span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2 shrink-0"></span> 서울대학교 졸업</li>
-                <li className="flex items-start gap-3 font-semibold"><span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2 shrink-0"></span> 서울대학교 치의학대학원 졸업</li>
-                <li className="flex items-start gap-3 font-extrabold text-blue-900 italic underline decoration-blue-200 decoration-4 underline-offset-4"><span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2 shrink-0"></span> 서울대학교 치의학대학원 석사</li>
-                <li className="flex items-start gap-3 font-extrabold text-blue-900 italic underline decoration-blue-200 decoration-4 underline-offset-4"><span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2 shrink-0"></span> 보건복지부 인증 통합치의학 전문의</li>
-                <li className="flex items-start gap-3 font-extrabold text-blue-900 italic underline decoration-blue-200 decoration-4 underline-offset-4"><span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-2 shrink-0"></span> 가톨릭대학교 임상치과대학원 치과교정학 전공</li>
-              </ul>
-            </div>
+            <div className="space-y-16">
+              {/* 학력 섹션 */}
+              <div>
+                <h5 className="text-blue-900 font-bold text-lg mb-6 flex items-center gap-3">
+                  <span className="w-8 h-[2px] bg-blue-900"></span> 학력 및 전문의
+                </h5>
+                <ul className="space-y-5 text-slate-700 text-lg md:text-xl font-medium">
+                  <li>서울대학교 졸업 / 서울대학교 치의학대학원 졸업</li>
+                  <li className="text-blue-950 font-black italic underline decoration-blue-100 decoration-8 underline-offset-2">서울대학교 치의학대학원 석사</li>
+                  <li className="text-blue-950 font-black italic underline decoration-blue-100 decoration-8 underline-offset-2">보건복지부 인증 통합치의학 전문의</li>
+                  <li className="text-blue-950 font-black italic underline decoration-blue-100 decoration-8 underline-offset-2">가톨릭대학교 임상치과대학원 치과교정학 전공</li>
+                </ul>
+              </div>
 
-            <div className="mb-10 p-6 bg-slate-50 rounded-2xl border border-slate-100 font-sans">
-              <p className="text-blue-900 font-bold text-sm mb-5 tracking-tighter border-b border-blue-100 pb-2">인증 및 연구 협력</p>
-              <ul className="space-y-3 text-slate-700 text-sm md:text-base font-bold font-sans">
-                <li className="flex items-center gap-2 font-sans">● 오스템 임플란트 연구 자문 치과</li>
-                <li className="flex items-center gap-2 font-sans">● 디지털 투명교정 매직얼라인 우수 사용 치과</li>
-                <li className="flex items-center gap-2 font-sans">● 투명교정 슈어스마일 인증 치과</li>
-              </ul>
-            </div>
-
-            <div className="font-sans">
-              <p className="text-blue-900 font-bold text-sm mb-5 tracking-tighter border-b border-blue-100 pb-2">학회 및 수료</p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 text-slate-600 text-sm md:text-base font-medium font-sans">
-                <li className="flex items-start gap-2 font-sans">• 대한 통합치과학회 정회원</li>
-                <li className="flex items-start gap-2 font-sans">• 대한 치과보철학회 정회원</li>
-                <li className="flex items-start gap-2 font-sans">• 대한 악안면임플란트학회 정회원</li>
-                <li className="flex items-start gap-2 font-sans">• 오스템 AIC 임플란트 고급과정 수료</li>
-              </ul>
+              {/* 인증 섹션 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="p-8 bg-slate-50 rounded-[32px] border border-slate-100">
+                  <h5 className="text-slate-900 font-black text-sm mb-6 uppercase tracking-widest">인증기관</h5>
+                  <ul className="space-y-3 text-slate-600 text-sm font-bold">
+                    <li>● 오스템 임플란트 연구 자문 치과</li>
+                    <li>● 디지털 투명교정 매직얼라인 우수 사용</li>
+                    <li>● 투명교정 슈어스마일 인증 치과</li>
+                  </ul>
+                </div>
+                <div className="p-8 bg-slate-50 rounded-[32px] border border-slate-100">
+                  <h5 className="text-slate-900 font-black text-sm mb-6 uppercase tracking-widest">학회활동</h5>
+                  <ul className="space-y-3 text-slate-600 text-sm font-bold">
+                    <li>• 대한 통합치과학회 정회원</li>
+                    <li>• 대한 치과보철학회 정회원</li>
+                    <li>• 대한 악안면임플란트학회 정회원</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. 블로그 섹션 */}
-      <section id="blog" className="py-16 md:py-32 px-6 bg-white border-t">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left">
+      {/* 4. 블로그 (카드 스타일 강화) */}
+      <section id="blog" className="py-24 md:py-48 px-6 bg-[#f8f9fb]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-between items-end mb-16 px-4">
             <div>
-              <span className="text-blue-900 font-black text-xs uppercase tracking-widest mb-2 block italic font-sans">진료 일지</span>
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight font-sans">대표원장이 직접 쓰는 치아 이야기</h3>
-              <p className="text-sm md:text-lg text-slate-500 font-medium break-keep font-sans">환자분들께 꼭 알려드리고 싶은 치아 건강 정보를 직접 전합니다.</p>
+              <span className="text-blue-900 font-black text-sm tracking-widest mb-4 block italic uppercase">Medical Column</span>
+              <h3 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">원장의 정성이 담긴 진료 일지</h3>
             </div>
-            <Link href={BLOG_MAIN_URL} target="_blank" className="bg-slate-900 text-white px-8 py-3 rounded-2xl font-bold text-sm active:scale-95 shadow-lg font-sans">블로그 전체보기 →</Link>
+            <Link href={BLOG_MAIN_URL} target="_blank" className="hidden md:block bg-white text-slate-900 px-8 py-4 rounded-full font-bold shadow-sm hover:bg-slate-900 hover:text-white transition-all">
+              전체보기 →
+            </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {blogPosts.map((post, i) => (
-              <Link key={i} href={post.link} target="_blank" className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm active:bg-slate-50">
-                <div className="aspect-video bg-slate-100 flex items-center justify-center text-slate-300 font-black text-[10px] uppercase tracking-widest font-sans">진료 일지</div>
-                <div className="p-7 text-left font-sans">
-                  <span className="inline-block px-3 py-1 bg-blue-50 text-blue-900 text-[10px] font-black rounded-full mb-4 uppercase font-sans">{post.category}</span>
-                  <h4 className="text-base md:text-xl font-bold text-slate-800 mb-4 leading-snug tracking-tight break-keep group-hover:text-blue-900 transition-colors font-sans">{post.title}</h4>
-                  <div className="flex justify-between items-center text-slate-400 text-[10px] font-bold uppercase border-t pt-4 font-sans">
+              <Link key={i} href={post.link} target="_blank" className="group bg-white rounded-[40px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500">
+                <div className="aspect-video bg-slate-200 flex items-center justify-center text-slate-400 font-black text-[10px] tracking-widest uppercase">Journal</div>
+                <div className="p-10">
+                  <span className="inline-block px-4 py-1.5 bg-blue-50 text-blue-900 text-[10px] font-black rounded-full mb-6 uppercase">{post.category}</span>
+                  <h4 className="text-xl md:text-2xl font-bold text-slate-800 mb-8 leading-snug break-keep group-hover:text-blue-900 transition-colors">{post.title}</h4>
+                  <div className="flex justify-between items-center text-slate-400 text-xs font-bold border-t pt-6">
                     <span>{post.date}</span>
-                    <span className="italic underline underline-offset-2">자세히 보기 +</span>
+                    <span className="text-blue-900 italic">Read More +</span>
                   </div>
                 </div>
               </Link>
@@ -151,77 +161,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. 진료시간 및 오시는 길 (점심시간 시각적 축소) */}
-      <section id="location" className="py-16 md:py-32 px-4 md:px-6 bg-slate-50/50 font-sans">
-        <div className="max-w-6xl mx-auto flex flex-col gap-10 text-left">
-          <div className="bg-white rounded-[2rem] p-6 md:p-12 shadow-2xl border border-slate-100">
-            <div className="flex justify-between items-center border-b border-blue-50 pb-4 mb-8">
-              <h4 className="text-xl md:text-2xl font-black text-blue-900 italic font-sans tracking-tight">진료 시간 안내</h4>
-              <span className="bg-red-50 text-red-600 px-4 py-1.5 rounded-full text-xs font-black font-sans tracking-tighter italic underline decoration-red-200">목요일 휴진</span>
-            </div>
-            
+      {/* 5. 진료시간 및 오시는 길 (서울블랑 스타일의 정보 집중 레이아웃) */}
+      <section id="location" className="py-24 md:py-48 px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
+          
+          {/* 진료 시간 정보 */}
+          <div className="flex flex-col justify-center">
+            <h4 className="text-4xl md:text-6xl font-black text-slate-900 mb-12 tracking-tighter">진료 시간 안내</h4>
             <div className="space-y-10">
-              {/* 평일 진료 시간 (강조) */}
-              <div className="px-2">
-                <div className="flex justify-between items-end">
-                   <div>
-                      <span className="block font-bold text-sm text-slate-400 italic mb-1 font-sans tracking-widest">평일 진료</span>
-                      <span className="text-slate-800 font-black text-2xl md:text-4xl tracking-tighter font-sans leading-none">월·화·수·금</span>
-                   </div>
-                   <div className="text-right">
-                      <span className="block text-slate-900 font-black text-2xl md:text-4xl tracking-tighter font-sans leading-none">10:00 - 17:00</span>
-                      {/* 🌟 점심시간: 텍스트를 흐리고 조그맣게 배치 🌟 */}
-                      <span className="block text-slate-300 font-medium text-[11px] md:text-xs mt-2 font-sans italic tracking-tight uppercase">Break Time 13:00 - 14:00</span>
-                   </div>
-                </div>
-              </div>
-
-              {/* 주말 진료 (강력 강조) */}
-              <div className="bg-blue-900 p-7 md:p-10 rounded-[2.5rem] text-white shadow-2xl shadow-blue-100 relative overflow-hidden group">
-                <div className="flex justify-between items-start mb-4 relative z-10 font-sans">
-                  <div className="font-black text-2xl md:text-4xl tracking-tighter italic font-sans leading-none uppercase tracking-tight">
-                     토·일 주말진료
-                  </div>
-                  <div className="text-right">
-                     <span className="block font-black text-2xl md:text-4xl tracking-tighter font-sans leading-none">10:00 - 16:00</span>
-                     {/* 🌟 주말 점심시간: 마찬가지로 흐리고 작게 🌟 */}
-                     <span className="block text-blue-300/50 font-medium text-[11px] md:text-xs mt-2 font-sans italic tracking-tight uppercase">Break Time 13:00 - 14:00</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 relative z-10 font-sans">
-                   <span className="w-2 h-2 bg-blue-300 rounded-full animate-pulse"></span>
-                   <p className="text-blue-100 text-xs md:text-sm font-bold font-sans">바쁜 직장인과 학생을 위해 일요일도 진료합니다.</p>
-                </div>
-                {/* 배경 패턴 데코 */}
-                <div className="absolute right-[-20px] bottom-[-20px] text-white/5 font-black text-9xl italic pointer-events-none uppercase font-sans">WEEKEND</div>
-              </div>
-            </div>
-
-            <div className="mt-12">
-              <a href="tel:053-216-3636" className="w-full bg-slate-900 text-white p-7 rounded-3xl flex justify-between items-center active:bg-blue-900 shadow-xl transition-all font-sans group">
+              <div className="flex justify-between items-end border-b border-slate-100 pb-8">
                 <div>
-                  <p className="text-[10px] font-black text-blue-300 uppercase mb-1 tracking-widest font-sans">실시간 예약 및 상담 문의</p>
-                  <p className="text-2xl md:text-3xl font-black tracking-tight underline decoration-blue-500 underline-offset-4 font-sans group-hover:scale-[1.02] transition-transform">053-216-3636</p>
+                  <span className="text-slate-400 font-bold text-lg block mb-2">월 · 화 · 수 · 금</span>
+                  <span className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter">10:00 - 17:00</span>
                 </div>
-                <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center font-sans group-hover:bg-white/20 transition-colors">
-                   <span className="text-3xl font-sans group-hover:rotate-12 transition-transform">📞</span>
+                <span className="text-slate-300 font-medium text-sm italic mb-1 uppercase">Break 13:00 - 14:00</span>
+              </div>
+
+              <div className="bg-blue-950 p-10 md:p-14 rounded-[48px] text-white shadow-2xl relative overflow-hidden group">
+                <div className="flex justify-between items-start mb-8 relative z-10">
+                   <h5 className="text-2xl md:text-4xl font-black italic tracking-tighter uppercase">Weekend Open</h5>
+                   <span className="bg-white text-blue-950 px-4 py-1 rounded-full text-xs font-black uppercase">토·일 진료</span>
                 </div>
-              </a>
-              <p className="text-center text-slate-300 text-[10px] mt-4 italic font-medium tracking-tight font-sans">※ 전화번호를 누르면 바로 연결됩니다.</p>
+                <div className="flex justify-between items-end relative z-10">
+                   <p className="text-blue-200 text-sm md:text-lg font-bold leading-snug">점심시간은 1시부터 2시까지 <br />평일과 동일하게 운영됩니다.</p>
+                   <span className="text-4xl md:text-6xl font-black tracking-tighter">10:00 - 16:00</span>
+                </div>
+                {/* 배경 패턴 */}
+                <div className="absolute right-[-20px] bottom-[-20px] text-white/5 text-9xl font-black italic pointer-events-none">WEEK</div>
+              </div>
+
+              <div className="pt-4">
+                 <p className="text-slate-400 font-medium text-sm italic mb-10 tracking-tight">※ 목요일 및 공휴일은 휴진입니다.</p>
+                 <a href="tel:053-216-3636" className="inline-flex items-center gap-6 group">
+                   <span className="text-4xl md:text-6xl font-black text-slate-900 group-hover:text-blue-900 transition-colors tracking-tighter underline underline-offset-8 decoration-4">053-216-3636</span>
+                   <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-3xl group-hover:bg-blue-950 group-hover:text-white transition-all">📞</div>
+                 </a>
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col gap-6 font-sans">
-            <h3 className="text-2xl md:text-3xl font-bold tracking-tight px-2 font-sans">오시는 길</h3>
-            <Link href={NAVER_MAP_LINK} target="_blank" rel="noopener noreferrer" className="group relative min-h-[350px] md:min-h-[450px] rounded-[2.5rem] overflow-hidden shadow-xl border-4 border-white font-sans">
-              <img src="/map-capture.png" alt="지도" className="w-full h-full object-cover font-sans" />
-              <div className="absolute bottom-6 left-6 right-6 font-sans">
-                <div className="bg-white/95 backdrop-blur-lg p-5 rounded-3xl shadow-2xl flex justify-between items-center border border-white font-sans">
-                  <div className="font-sans">
-                    <p className="text-blue-900 font-black text-base font-sans tracking-tight leading-tight mb-0.5">서울한스치과의원</p>
-                    <p className="text-slate-500 text-[11px] font-sans font-medium tracking-tight italic">스타벅스 건물 3층 (무료 주차)</p>
+          {/* 오시는 길 지도 */}
+          <div className="flex flex-col gap-10">
+            <Link href={NAVER_MAP_LINK} target="_blank" className="group relative flex-1 min-h-[400px] md:min-h-[600px] rounded-[48px] overflow-hidden shadow-2xl border-4 border-white cursor-pointer">
+              <img src="/map-capture.png" alt="지도" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors" />
+              <div className="absolute bottom-10 left-10 right-10">
+                <div className="bg-white/95 backdrop-blur-xl p-8 rounded-[32px] shadow-2xl flex justify-between items-center transform group-hover:-translate-y-2 transition-transform">
+                  <div>
+                    <p className="text-blue-950 font-black text-xl mb-1">서울한스치과의원</p>
+                    <p className="text-slate-500 font-medium">대구 동구 동부로 30길 12 3층</p>
                   </div>
-                  <span className="bg-blue-900 text-white text-xs px-5 py-2.5 rounded-full font-black font-sans shadow-md">길찾기 →</span>
+                  <span className="bg-blue-950 text-white px-6 py-3 rounded-full font-black text-sm">길찾기</span>
                 </div>
               </div>
             </Link>
@@ -229,13 +219,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 푸터 */}
-      <footer className="py-24 px-6 bg-white text-center border-t font-sans">
-        <p className="text-slate-900 font-black text-sm mb-3 italic tracking-widest uppercase font-sans">Seoul Hans Dental Clinic</p>
-        <p className="text-slate-400 text-[10px] font-bold leading-relaxed break-keep font-sans tracking-tighter opacity-70">
-          대구광역시 동구 동부로 30길 12 3층 (대표: 주호성) | TEL: 053-216-3636 <br />
-          ⓒ 2026 Seoul Hans Dental. All rights reserved.
-        </p>
+      {/* 푸터 (서울블랑 스타일의 미니멀) */}
+      <footer className="py-24 px-6 border-t border-slate-100 bg-white text-center">
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-8">
+           <h5 className="text-slate-900 font-black text-xl italic tracking-widest">SEOUL HANS DENTAL CLINIC</h5>
+           <div className="text-slate-400 text-xs font-bold leading-relaxed space-y-2 opacity-60 uppercase">
+             <p>대구광역시 동구 동부로 30길 12 3층 (대표: 주호성) | TEL: 053-216-3636</p>
+             <p>© 2026 Seoul Hans Dental. All rights reserved.</p>
+           </div>
+        </div>
       </footer>
     </div>
   );
