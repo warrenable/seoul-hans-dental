@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import CasesSlider from '@/components/CasesSlider';
+import KakaoMap from '@/components/KakaoMap';
 
 export default function Home() {
   return (
@@ -98,6 +100,9 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <CasesSlider />
+      <KakaoMap />
 
       {/* 6. Footer (하단 정보) */}
       <footer className="bg-gray-100 py-12 text-sm text-gray-500">
