@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-// import Image from 'next/image'; // Next.js Image 컴포넌트 사용 시 외부 URL은 next.config.js 설정이 필요할 수 있습니다.
+import Image from 'next/image';
 import CasesSlider from '@/components/CasesSlider';
 import KakaoMap from '@/components/KakaoMap';
 
@@ -62,7 +62,6 @@ export default function Home() {
 
       {/* 3. 진료과목 */}
       <section id="treatments" className="py-24 bg-white">
-        {/* 기존 진료과목 코드를 유지하되, 원장님 병원 특화 진료에 맞춰 텍스트를 수정하시면 됩니다. */}
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">진료과목</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -85,10 +84,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">서울한스치과 의료진 소개</h2>
           <div className="flex justify-center">
-            {/* 단독 대표원장 레이아웃으로 변경 (가운데 정렬) */}
             <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 max-w-2xl w-full">
               <div className="h-96 bg-gray-200 relative">
-                {/* 원장님 프로필 사진 URL로 교체 필요 */}
                 <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="대표원장" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500" />
               </div>
               <div className="p-10">
@@ -105,9 +102,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5, 6, 7, 8 섹션은 기존 코드 구조 유지 (추후 상세 콘텐츠 변경) */}
-      {/* ... 기존 Blanc Film, Implant, CasesSlider, Gallery 섹션 코드와 동일 ... */}
+      {/* 5. Blanc Film (무삭제 라미네이트 - 다크 테마 및 넓은 이미지) - 원본 유지 */}
+      <section id="blanc-film" className="py-32 bg-[#1a1a1a] text-white relative overflow-hidden">
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20">
+          <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=1000&q=80" alt="Film Background" className="w-full h-full object-cover" />
+        </div>
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <p className="text-gray-400 font-bold tracking-[0.2em] mb-4 text-sm">BLANC FILM BY SEOUL BLANC</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-10 leading-tight">서울블랑치과의 <br/> 무삭제 라미네이트</h2>
+          <div className="space-y-6 text-lg text-gray-300 font-light">
+            <p><strong className="text-white font-bold">POINT 01.</strong> 개개인의 황금비에 맞추어 100% 수작업되는 "블랑필름"</p>
+            <p><strong className="text-white font-bold">POINT 02.</strong> 소중한 자연치 보존을 위해 0.1mm Film 두께로 구현한 기술력</p>
+            <p><strong className="text-white font-bold">POINT 03.</strong> 불필요한 치아삭제를 방지하기 위한 선교정 후 블랑필름 진행</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Implant (장비 및 임플란트 표면 라인업) - 원본 유지 */}
+      <section id="implant" className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-6">오스템임플란트 정품 사용</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              서울블랑치과에서는 저렴한 임플란트 픽스쳐는 사용하지 않습니다. <br/>
+              가장 우수한 BA 표면 제품만을 취급하며, 모든 환자분들께 정품 보증서를 제공합니다.
+            </p>
+          </div>
+          
+          <div className="w-full h-80 bg-slate-50 rounded-2xl border border-gray-100 flex items-center justify-center flex-col shadow-sm">
+            <svg className="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            <p className="text-gray-400 font-medium">[오스템 임플란트 표면 라인업 비교 인포그래픽 영역]</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. 치료전후 슬라이더 컴포넌트 호출 - 원본 유지 */}
       <CasesSlider />
+
+      {/* 8. 둘러보기 (Gallery - 인테리어 사진 그리드) - 원본 유지 */}
+      <section id="gallery" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4">서울블랑치과 둘러보기</h2>
+          <p className="text-center text-gray-500 mb-16">치과 치료를 편안하게 받으실 수 있도록</p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt="Interior 1" className="w-full h-64 object-cover rounded-xl" />
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80" alt="Interior 2" className="w-full h-64 object-cover rounded-xl" />
+            <img src="https://images.unsplash.com/photo-1538108149393-cebb47ac0925?auto=format&fit=crop&w=600&q=80" alt="Interior 3" className="w-full h-64 object-cover rounded-xl" />
+            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=600&q=80" alt="Interior 4" className="w-full h-64 object-cover rounded-xl" />
+          </div>
+        </div>
+      </section>
 
       {/* 9. 카카오맵 컴포넌트 호출 */}
       <KakaoMap />
@@ -134,7 +179,6 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© 2026 Seoul Hans Dental Clinic. All Right Reserved.</p>
             <div className="flex space-x-6 font-medium text-gray-600">
-              {/* 원장님의 정확한 네이버 블로그 주소 연동 */}
               <a href="https://blog.naver.com/seoulhansdental" target="_blank" rel="noreferrer" className="hover:text-blue-600 transition-colors">네이버 블로그</a>
               <a href="#" className="hover:text-blue-600 transition-colors">인스타그램</a>
               <a href="#" className="hover:text-blue-600 transition-colors">카카오 채널</a>
