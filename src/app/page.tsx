@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import CasesSlider from '@/components/CasesSlider';
 import KakaoMap from '@/components/KakaoMap';
 
@@ -10,125 +11,195 @@ export default function Home() {
         <title>서울블랑치과 - 치아교정, 인비절라인, 무삭제라미네이트</title>
       </Head>
 
-      {/* 1. Header & Navigation */}
-      <header className="sticky top-0 bg-white border-b z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold tracking-tighter">
-            {/* 실제 사이트의 로고 이미지 영역 */}
+      {/* 1. Header */}
+      <header className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 transition-all">
+        <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+          <div className="text-2xl font-black tracking-tighter text-gray-900">
             SEOUL BLANC
           </div>
-          <nav className="hidden lg:flex space-x-6 text-[15px] font-medium text-gray-800">
-            <a href="#staff" className="hover:text-gray-500 transition-colors">의료진 소개</a>
-            <a href="#treatments" className="hover:text-gray-500 transition-colors">진료과목</a>
-            <a href="#blanc-film" className="hover:text-gray-500 transition-colors">Blanc Film</a>
-            <a href="#implant" className="hover:text-gray-500 transition-colors">임플란트</a>
-            <a href="#cases" className="hover:text-gray-500 transition-colors">증례별 전후사진</a>
-            <a href="#reviews" className="hover:text-gray-500 transition-colors">환자후기</a>
-            <a href="#gallery" className="hover:text-gray-500 transition-colors">둘러보기</a>
-            <a href="#hours" className="hover:text-gray-500 transition-colors">진료시간</a>
-            <a href="#location" className="hover:text-gray-500 transition-colors">오시는 길</a>
+          <nav className="hidden lg:flex space-x-8 text-[15px] font-semibold text-gray-700">
+            <a href="#staff" className="hover:text-black transition-colors">의료진 소개</a>
+            <a href="#treatments" className="hover:text-black transition-colors">진료과목</a>
+            <a href="#blanc-film" className="hover:text-black transition-colors">Blanc Film</a>
+            <a href="#implant" className="hover:text-black transition-colors">임플란트</a>
+            <a href="#cases" className="hover:text-black transition-colors">증례별 전후사진</a>
+            <a href="#gallery" className="hover:text-black transition-colors">둘러보기</a>
+            <a href="#location" className="hover:text-black transition-colors">오시는 길</a>
           </nav>
         </div>
       </header>
 
-      {/* 2. Hero Section (메인 비주얼) */}
-      <section className="bg-gray-50 py-32 text-center flex flex-col items-center">
-        <p className="text-sm font-semibold tracking-widest text-gray-500 mb-4">SEOUL BLANC DENTAL</p>
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 leading-tight">
-          편안하게 쉬면서 아름다워지는 <br className="hidden md:block" /> 공간을 만들었습니다.
-        </h1>
-        <p className="text-lg text-gray-600 mb-10">
-          서울대 출신 대표원장이 1:1 책임진료하는 교정/심미치과
-        </p>
-        
-        {/* 통증완화 시스템 강조 포인트 */}
-        <div className="flex flex-wrap justify-center gap-4">
-           <span className="px-5 py-2.5 bg-white rounded-full shadow-sm text-sm font-medium border border-gray-100">가글마취</span>
-           <span className="px-5 py-2.5 bg-white rounded-full shadow-sm text-sm font-medium border border-gray-100">도포마취</span>
-           <span className="px-5 py-2.5 bg-white rounded-full shadow-sm text-sm font-medium border border-gray-100">무통마취기</span>
+      {/* 2. Hero Section (메인 비주얼 - 풀스크린 배경 이미지 적용) */}
+      <section className="relative h-screen flex items-center justify-center text-center">
+        {/* 배경 이미지 (Unsplash 샘플) */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1920&q=80" 
+            alt="Clinic Interior" 
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white"></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 mt-20">
+          <p className="text-sm font-bold tracking-[0.2em] text-gray-500 mb-6">SEOUL BLANC DENTAL</p>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-gray-900 leading-[1.3]">
+            편안하게 쉬면서 아름다워지는 <br className="hidden md:block" /> 공간을 만들었습니다.
+          </h1>
+          <p className="text-lg md:text-xl text-gray-700 mb-12 font-medium">
+            서울대 출신 대표원장이 1:1 책임진료하는 교정/심미치과
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-3">
+             {['가글마취', '도포마취', '무통마취기'].map((item) => (
+               <span key={item} className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-sm text-sm font-bold border border-gray-200 text-gray-800">
+                 {item}
+               </span>
+             ))}
+          </div>
         </div>
       </section>
 
-      {/* 3. Medical Staff (의료진 소개) */}
-      <section id="staff" className="py-24 bg-white">
+      {/* 3. 진료과목 (Treatments Grid) */}
+      <section id="treatments" className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-16">진료과목</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {['치아교정', '인비절라인', '무삭제 라미네이트', '턱관절치료', '치아미백', '임플란트', '신경치료', '크라운'].map((subject, idx) => (
+              <div key={idx} className="group cursor-pointer">
+                <div className="bg-gray-100 aspect-square rounded-2xl mb-4 overflow-hidden relative">
+                  {/* 아이콘/이미지 플레이스홀더 */}
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-300 group-hover:scale-110 transition-transform duration-500 bg-slate-50">
+                    <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                  </div>
+                </div>
+                <h3 className="text-center font-bold text-gray-800 group-hover:text-blue-600 transition-colors">{subject}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Medical Staff (의료진 소개 - 이미지 공간 확보) */}
+      <section id="staff" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">서울블랑치과 의료진 소개</h2>
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-12">
             {/* 백진아 대표원장 */}
-            <div className="bg-gray-50 p-10 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-6 border-b border-gray-200 pb-4">대표원장 백진아</h3>
-              <ul className="text-gray-700 space-y-3 text-[15px] leading-relaxed">
-                <li>· 서울대학교 치과대학 치의학대학원 졸업</li>
-                <li>· 가톨릭대학교 임상치과학대학원 치과교정학과 석박사과정</li>
-                <li>· 미국 인비절라인(Invisalign) 투명교정 인증의</li>
-                <li>· 투명교정의 정확도 향상을 위한 특허 출원</li>
-              </ul>
-            </div>
-            {/* 오윤정 라미네이트 수석원장 */}
-            <div className="bg-gray-50 p-10 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-6 border-b border-gray-200 pb-4">라미네이트 수석원장 오윤정</h3>
-              <ul className="text-gray-700 space-y-3 text-[15px] leading-relaxed">
-                <li>· 보건복지부인증 통합치의학과 전문의</li>
-                <li>· 경북대학교 치의학대학원 졸업</li>
-                <li>· 오스템 임플란트 MASTER COURSE SURGERY 수료</li>
-                <li>· 라미네이트 2만 케이스</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Blanc Film (시그니처: 무삭제 라미네이트) */}
-      <section id="blanc-film" className="py-24 bg-stone-900 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <p className="text-stone-400 font-semibold tracking-widest mb-4">BLANC FILM BY SEOUL BLANC</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">서울블랑치과의 무삭제 라미네이트</h2>
-          <p className="text-lg text-stone-300 leading-relaxed">
-            개개인의 황금비에 맞추어 100% 수작업되는 "블랑필름"<br />
-            소중한 자연치 보존을 위해 0.1mm Film 두께로 구현한 기술력입니다.
-          </p>
-        </div>
-      </section>
-
-      {/* 5. Implant (오스템 정품 강조) */}
-      <section id="implant" className="py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">서울블랑치과 임플란트</h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            저렴한 임플란트 픽스쳐는 사용하지 않고, 오스템 임플란트 정품만을 고집합니다. 
-            그중에서도 BA 표면 제품만을 취급하며, 모든 환자분들께 정품 보증서를 제공합니다.
-          </p>
-        </div>
-      </section>
-
-      <CasesSlider />
-      <KakaoMap />
-
-      {/* 6. Footer (하단 정보) */}
-      <footer className="bg-gray-100 py-12 text-sm text-gray-500">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between border-b border-gray-300 pb-8 mb-8">
-            <div>
-              <h2 className="text-lg font-bold text-gray-800 mb-4">서울블랑치과의원</h2>
-              <div className="space-y-1">
-                <p>주소 : 서울 구로구 디지털로 243 지하이시티 2층 202호</p>
-                <p>대표 : 백진아 | 사업자등록번호 : 433-16-02801</p>
-                <p>대표전화 : 02-2224-0055 | 팩스 : 02-2224-0056</p>
+            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <div className="h-96 bg-gray-200 relative">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80" alt="백진아 원장" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500" />
+              </div>
+              <div className="p-10">
+                <h3 className="text-2xl font-bold mb-6 border-b border-gray-100 pb-4">대표원장 백진아</h3>
+                <ul className="text-gray-600 space-y-3 text-[15px] leading-relaxed">
+                  <li>· 서울대학교 치과대학 치의학대학원 졸업</li>
+                  <li>· 가톨릭대학교 임상치과학대학원 치과교정학과 석박사과정</li>
+                  <li>· 미국 인비절라인(Invisalign) 투명교정 인증의</li>
+                  <li>· 투명교정의 정확도 향상을 위한 특허 출원</li>
+                </ul>
               </div>
             </div>
-            <div className="mt-8 md:mt-0 text-left md:text-right">
-              <h3 className="font-bold text-gray-800 mb-2">진료시간</h3>
-              <p>월, 수 : PM 02:00 ~ PM 09:00</p>
-              <p>화, 금 : AM 10:30 ~ PM 07:00</p>
-              <p>토요일 : AM 10:00 ~ PM 02:30</p>
-              <p className="text-red-400 mt-1">목요일, 일요일 및 공휴일 휴진</p>
+            {/* 오윤정 라미네이트 수석원장 */}
+            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+              <div className="h-96 bg-gray-200 relative">
+                <img src="https://images.unsplash.com/photo-1594824436998-d8ea3fa8448a?auto=format&fit=crop&w=800&q=80" alt="오윤정 원장" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500" />
+              </div>
+              <div className="p-10">
+                <h3 className="text-2xl font-bold mb-6 border-b border-gray-100 pb-4">라미네이트 수석원장 오윤정</h3>
+                <ul className="text-gray-600 space-y-3 text-[15px] leading-relaxed">
+                  <li>· 보건복지부인증 통합치의학과 전문의</li>
+                  <li>· 경북대학교 치의학대학원 졸업</li>
+                  <li>· 오스템 임플란트 MASTER COURSE SURGERY 수료</li>
+                  <li>· 라미네이트 2만 케이스</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div className="flex justify-between items-center">
-            <p>Copyright 2025 Seoul Blanc Dental Clinic. All Right Reserved.</p>
-            <div className="space-x-4">
-              <a href="#" className="hover:text-gray-800">네이버 블로그</a>
-              <a href="#" className="hover:text-gray-800">인스타그램</a>
+        </div>
+      </section>
+
+      {/* 5. Blanc Film (무삭제 라미네이트 - 다크 테마 및 넓은 이미지) */}
+      <section id="blanc-film" className="py-32 bg-[#1a1a1a] text-white relative overflow-hidden">
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20">
+          <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=1000&q=80" alt="Film Background" className="w-full h-full object-cover" />
+        </div>
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <p className="text-gray-400 font-bold tracking-[0.2em] mb-4 text-sm">BLANC FILM BY SEOUL BLANC</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-10 leading-tight">서울블랑치과의 <br/> 무삭제 라미네이트</h2>
+          <div className="space-y-6 text-lg text-gray-300 font-light">
+            <p><strong className="text-white font-bold">POINT 01.</strong> 개개인의 황금비에 맞추어 100% 수작업되는 "블랑필름"</p>
+            <p><strong className="text-white font-bold">POINT 02.</strong> 소중한 자연치 보존을 위해 0.1mm Film 두께로 구현한 기술력</p>
+            <p><strong className="text-white font-bold">POINT 03.</strong> 불필요한 치아삭제를 방지하기 위한 선교정 후 블랑필름 진행</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Implant (장비 및 임플란트 표면 라인업) */}
+      <section id="implant" className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-6">오스템임플란트 정품 사용</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              서울블랑치과에서는 저렴한 임플란트 픽스쳐는 사용하지 않습니다. <br/>
+              가장 우수한 BA 표면 제품만을 취급하며, 모든 환자분들께 정품 보증서를 제공합니다.
+            </p>
+          </div>
+          
+          {/* 표면 라인업 비교 테이블을 시각화한 이미지 플레이스홀더 */}
+          <div className="w-full h-80 bg-slate-50 rounded-2xl border border-gray-100 flex items-center justify-center flex-col shadow-sm">
+            <svg className="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            <p className="text-gray-400 font-medium">[오스템 임플란트 표면 라인업 비교 인포그래픽 영역]</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. 치료전후 슬라이더 컴포넌트 호출 */}
+      <CasesSlider />
+
+      {/* 8. 둘러보기 (Gallery - 인테리어 사진 그리드) */}
+      <section id="gallery" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4">서울블랑치과 둘러보기</h2>
+          <p className="text-center text-gray-500 mb-16">치과 치료를 편안하게 받으실 수 있도록</p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt="Interior 1" className="w-full h-64 object-cover rounded-xl" />
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80" alt="Interior 2" className="w-full h-64 object-cover rounded-xl" />
+            <img src="https://images.unsplash.com/photo-1538108149393-cebb47ac0925?auto=format&fit=crop&w=600&q=80" alt="Interior 3" className="w-full h-64 object-cover rounded-xl" />
+            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=600&q=80" alt="Interior 4" className="w-full h-64 object-cover rounded-xl" />
+          </div>
+        </div>
+      </section>
+
+      {/* 9. 카카오맵 컴포넌트 호출 (오시는 길) */}
+      <KakaoMap />
+
+      {/* 10. Footer */}
+      <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between border-b border-gray-300 pb-10 mb-8 gap-8">
+            <div className="space-y-2">
+              <h2 className="text-xl font-bold text-gray-800 mb-6">서울블랑치과의원</h2>
+              <p>주소 : 서울 구로구 디지털로 243 지하이시티 2층 202호</p>
+              <p>상호명 : 서울블랑치과의원 | 대표 : 백진아 | 사업자등록번호 : 433-16-02801</p>
+              <p>대표전화 : <span className="font-bold text-gray-800">02-2224-0055</span> | 팩스 : 02-2224-0056</p>
+            </div>
+            <div className="md:text-right space-y-2">
+              <h3 className="font-bold text-gray-800 mb-6 text-lg">진료시간</h3>
+              <p>월, 수 : PM 02:00 ~ PM 09:00 (휴게시간 PM 05:00-PM 05:30)</p>
+              <p>화, 금 : AM 10:30 ~ PM 07:00 (휴게시간 PM 01:00-PM 02:00)</p>
+              <p>토요일 : AM 10:00 ~ PM 02:30 (휴게시간 없음)</p>
+              <p className="text-red-500 font-bold mt-2">※ 목요일, 일요일 및 공휴일 휴진</p>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 Seoul Blanc Dental Clinic. All Right Reserved.</p>
+            <div className="flex space-x-6 font-medium text-gray-600">
+              <a href="#" className="hover:text-black transition-colors">네이버 블로그</a>
+              <a href="#" className="hover:text-black transition-colors">인스타그램</a>
+              <a href="#" className="hover:text-black transition-colors">카카오 채널</a>
+              <a href="#" className="hover:text-black transition-colors">비급여 항목</a>
             </div>
           </div>
         </div>
