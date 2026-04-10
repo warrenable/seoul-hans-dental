@@ -9,7 +9,7 @@ export default function Home() {
     <div className="bg-white min-h-screen font-sans text-gray-900 scroll-smooth">
       <Head>
         <title>서울한스치과 - 통합치의학 전문의 · 치과교정학 전공</title>
-        <meta name="description" content="경기도 분당구 구미동에 위치한 서울한스치과입니다. 서울대 출신 대표원장 1:1 책임진료." />
+        <meta name="description" content="대구 동구 동부로에 위치한 서울한스치과입니다. 서울대 출신 대표원장 주호성 1:1 책임진료." />
       </Head>
 
       {/* 1. Header */}
@@ -21,7 +21,7 @@ export default function Home() {
           <nav className="hidden lg:flex space-x-8 text-[15px] font-semibold text-gray-700">
             <a href="#staff" className="hover:text-blue-600 transition-colors">의료진 소개</a>
             <a href="#treatments" className="hover:text-blue-600 transition-colors">진료과목</a>
-            <a href="#hans-philosophy" className="hover:text-blue-600 transition-colors">진료 철학</a>
+            <a href="#hans-film" className="hover:text-blue-600 transition-colors">Hans Film</a>
             <a href="#implant" className="hover:text-blue-600 transition-colors">임플란트</a>
             <a href="#cases" className="hover:text-blue-600 transition-colors">증례별 전후사진</a>
             <a href="#gallery" className="hover:text-blue-600 transition-colors">둘러보기</a>
@@ -86,15 +86,15 @@ export default function Home() {
           <div className="flex justify-center">
             <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 max-w-2xl w-full">
               <div className="h-96 bg-gray-200 relative">
-                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="대표원장" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500" />
+                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="대표원장 주호성" className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500" />
               </div>
               <div className="p-10">
-                <h3 className="text-2xl font-bold mb-6 border-b border-gray-100 pb-4">대표원장 [원장님 성함]</h3>
+                <h3 className="text-2xl font-bold mb-6 border-b border-gray-100 pb-4">대표원장 주호성</h3>
                 <ul className="text-gray-600 space-y-3 text-[16px] leading-relaxed font-medium">
                   <li>· 서울대학교 치과대학 졸업</li>
                   <li>· 보건복지부 인증 통합치의학과 전문의</li>
                   <li>· 임상치의학대학원 치과교정학 전공</li>
-                  <li>· [추가하실 학회나 약력을 이곳에 입력해주세요]</li>
+                  <li>· 대한치과교정학회 정회원</li>
                 </ul>
               </div>
             </div>
@@ -102,29 +102,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Blanc Film (무삭제 라미네이트 - 다크 테마 및 넓은 이미지) - 원본 유지 */}
-      <section id="blanc-film" className="py-32 bg-[#1a1a1a] text-white relative overflow-hidden">
+      {/* 5. Hans Film (무삭제 라미네이트) */}
+      <section id="hans-film" className="py-32 bg-[#1a1a1a] text-white relative overflow-hidden">
         <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20">
           <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=1000&q=80" alt="Film Background" className="w-full h-full object-cover" />
         </div>
         <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <p className="text-gray-400 font-bold tracking-[0.2em] mb-4 text-sm">BLANC FILM BY SEOUL BLANC</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-10 leading-tight">서울블랑치과의 <br/> 무삭제 라미네이트</h2>
+          <p className="text-gray-400 font-bold tracking-[0.2em] mb-4 text-sm">HANS FILM BY SEOUL HANS</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-10 leading-tight">서울한스치과의 <br/> 무삭제 라미네이트</h2>
           <div className="space-y-6 text-lg text-gray-300 font-light">
-            <p><strong className="text-white font-bold">POINT 01.</strong> 개개인의 황금비에 맞추어 100% 수작업되는 "블랑필름"</p>
+            <p><strong className="text-white font-bold">POINT 01.</strong> 개개인의 황금비에 맞추어 100% 수작업되는 "한스필름"</p>
             <p><strong className="text-white font-bold">POINT 02.</strong> 소중한 자연치 보존을 위해 0.1mm Film 두께로 구현한 기술력</p>
-            <p><strong className="text-white font-bold">POINT 03.</strong> 불필요한 치아삭제를 방지하기 위한 선교정 후 블랑필름 진행</p>
+            <p><strong className="text-white font-bold">POINT 03.</strong> 불필요한 치아삭제를 방지하기 위한 선교정 후 한스필름 진행</p>
           </div>
         </div>
       </section>
 
-      {/* 6. Implant (장비 및 임플란트 표면 라인업) - 원본 유지 */}
+      {/* 6. Implant */}
       <section id="implant" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-6">오스템임플란트 정품 사용</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              서울블랑치과에서는 저렴한 임플란트 픽스쳐는 사용하지 않습니다. <br/>
+              서울한스치과에서는 저렴한 임플란트 픽스쳐는 사용하지 않습니다. <br/>
               가장 우수한 BA 표면 제품만을 취급하며, 모든 환자분들께 정품 보증서를 제공합니다.
             </p>
           </div>
@@ -136,13 +136,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. 치료전후 슬라이더 컴포넌트 호출 - 원본 유지 */}
+      {/* 7. 치료전후 슬라이더 */}
       <CasesSlider />
 
-      {/* 8. 둘러보기 (Gallery - 인테리어 사진 그리드) - 원본 유지 */}
+      {/* 8. 둘러보기 (Gallery) */}
       <section id="gallery" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">서울블랑치과 둘러보기</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">서울한스치과 둘러보기</h2>
           <p className="text-center text-gray-500 mb-16">치과 치료를 편안하게 받으실 수 있도록</p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -155,7 +155,9 @@ export default function Home() {
       </section>
 
       {/* 9. 카카오맵 컴포넌트 호출 */}
-      <KakaoMap />
+      <div id="location">
+        <KakaoMap />
+      </div>
 
       {/* 10. Footer */}
       <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200">
@@ -163,9 +165,9 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between border-b border-gray-300 pb-10 mb-8 gap-8">
             <div className="space-y-2">
               <h2 className="text-xl font-bold text-gray-800 mb-6">서울한스치과의원</h2>
-              <p>주소 : 경기도 분당구 구미동 [상세 주소 및 층수 입력]</p>
-              <p>상호명 : 서울한스치과의원 | 대표 : [원장님 성함] | 사업자등록번호 : [사업자번호 입력]</p>
-              <p>대표전화 : <span className="font-bold text-gray-800">[전화번호 입력]</span></p>
+              <p>주소 : 대구광역시 동구 동부로 30길 12, 3층 <span className="font-semibold text-blue-700">(스타벅스 건물 3층)</span></p>
+              <p>상호명 : 서울한스치과의원 | 대표 : 주호성 | 사업자등록번호 : 861-96-00766</p>
+              <p>대표전화 : <span className="font-bold text-gray-800">053-216-3636</span></p>
             </div>
             <div className="md:text-right space-y-2">
               <h3 className="font-bold text-gray-800 mb-6 text-lg">진료시간</h3>

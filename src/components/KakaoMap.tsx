@@ -15,8 +15,8 @@ export default function KakaoMap() {
     window.kakao.maps.load(() => {
       const mapContainer = document.getElementById('map'); // 지도를 표시할 div
       
-      // 서울블랑치과 좌표 (예시 좌표이므로 실제 좌표로 수정 필요)
-      const clinicPosition = new window.kakao.maps.LatLng(37.4815, 126.8920); 
+      // 서울한스치과 대구 동구 좌표 (대략적인 위치이므로, 카카오맵 API에서 정확한 건물 위경도 추출 후 숫자 수정 권장)
+      const clinicPosition = new window.kakao.maps.LatLng(35.8776, 128.6286); 
 
       const mapOption = {
         center: clinicPosition,
@@ -34,7 +34,7 @@ export default function KakaoMap() {
       // 커스텀 오버레이 (병원 이름 표시)
       const overlayContent = `
         <div style="padding:5px; background:white; border:1px solid #ccc; border-radius:4px; font-size:12px; font-weight:bold; color:#333;">
-          서울블랑치과의원
+          서울한스치과의원
         </div>
       `;
       const customOverlay = new window.kakao.maps.CustomOverlay({
@@ -65,29 +65,27 @@ export default function KakaoMap() {
         <div className="space-y-6">
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-2">오시는 길</h2>
-            <p className="text-gray-500 font-medium">구로 에이스 하이엔드 1차 건물 건너편 지하이시티 2층</p>
+            <p className="text-gray-500 font-medium">대구광역시 동구 동부로 30길 12, 3층 (스타벅스 건물)</p>
           </div>
           
           <div className="space-y-4 text-gray-700">
             <div className="flex items-start">
               <span className="font-bold text-blue-600 min-w-[100px]">지하철 이용</span>
               <ul className="space-y-1">
-                <li>7호선 남구로역 2번출구 도보 10분</li>
-                <li>2호선 구로디지털단지역 도보 15분</li>
+                <li>1호선 동대구역 하차 후 도보 이동 (상세 출구 수정 필요)</li>
               </ul>
             </div>
             
             <div className="flex items-start">
               <span className="font-bold text-blue-600 min-w-[100px]">버스 이용</span>
               <ul className="space-y-1">
-                <li>간선 643번 가리봉파출소 하차</li>
-                <li>간선 504번 삼부르네상스 하차</li>
+                <li>동대구역 관련 버스 정류장 하차 (상세 노선 수정 필요)</li>
               </ul>
             </div>
 
             <div className="flex items-start">
               <span className="font-bold text-blue-600 min-w-[100px]">자가용 이용</span>
-              <p>건물 내 지하주차장 이용 (주차권 발급)</p>
+              <p>스타벅스 건물 내 주차장 이용 (주차권 발급)</p>
             </div>
           </div>
         </div>
