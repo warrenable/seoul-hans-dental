@@ -31,43 +31,43 @@ export default function Home() {
       </header>
 
       {/* 2. Hero Section */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-gray-900">
-        {/* 1. 배경 이미지: opacity 50% 적용 및 좌측 가독성 그라데이션 추가 */}
+      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-slate-800">
+        {/* 1. 배경 이미지: 밝기 완화 및 투명도 조정 */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80" 
             alt="서울한스치과 진료실 전경"
-            className="w-full h-full object-cover opacity-50"
+            className="w-full h-full object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+          {/* 가독성을 해치지 않는 선에서 부드러운 그라데이션 적용 */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center mt-12">
           
+          {/* 4. 전문가 배지 섹션: 상단 중앙으로 분리 배치 */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in-up">
+            <span className="px-4 py-1.5 bg-slate-900/90 backdrop-blur-md rounded-full text-sm font-bold border border-blue-400/60 text-blue-300 shadow-lg">
+              서울대학교 전기공학부 졸업
+            </span>
+            <span className="px-4 py-1.5 bg-blue-600/90 rounded-full text-sm font-semibold text-white shadow-md">
+              서울대학교 치의학대학원 졸업
+            </span>
+            <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
+              보건복지부 인증 통합치의학 전문의
+            </span>
+            <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
+              가톨릭대학교 치과교정학 전공
+            </span>
+          </div>
+
           {/* 상단 텍스트(좌측)와 로고(우측)를 나누는 컨테이너 */}
           <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8">
             
             {/* 좌측 텍스트 영역 */}
             <div className="w-full lg:w-3/5 text-left text-white">
-              
-              {/* 전문가 배지 (좌측 정렬 적용) */}
-              <div className="flex flex-wrap justify-start gap-3 mb-10 animate-fade-in-up">
-                <span className="px-4 py-1.5 bg-slate-900/90 backdrop-blur-md rounded-full text-sm font-bold border border-blue-400/60 text-blue-300 shadow-lg">
-                  서울대학교 전기공학부 졸업
-                </span>
-                <span className="px-4 py-1.5 bg-blue-600/90 rounded-full text-sm font-semibold text-white shadow-md">
-                  서울대학교 치의학대학원 졸업
-                </span>
-                <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
-                  보건복지부 인증 통합치의학 전문의
-                </span>
-                <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
-                  가톨릭대학교 치과교정학 전공
-                </span>
-              </div>
-
-              {/* 메인 Title */}
-              <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-[1.2] tracking-tight">
+              {/* 메인 Title: 글자 크기 축소 (5xl) 및 줄 간격 최적화 */}
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-8 leading-[1.3] tracking-tight">
                 처음 뵙는 순간부터 마지막 미소까지,<br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">
                   원장인 제가 직접
@@ -75,19 +75,19 @@ export default function Home() {
               </h1>
 
               {/* Subtitle */}
-              <p className="text-lg md:text-2xl text-gray-200 leading-relaxed font-light max-w-2xl">
+              <p className="text-lg md:text-xl text-gray-200 leading-relaxed font-light max-w-2xl">
                 분업화된 치과 시스템 속에서 길을 잃지 마세요. <br className="hidden md:block" />
                 제 환자는 제가 끝까지 책임집니다. <br className="hidden md:block" />
                 모든 치료 과정을 <span className="font-semibold text-white underline decoration-blue-500">하나의 지름길</span>로 인도합니다.
               </p>
             </div>
 
-            {/* 우측 서울대 마크 영역 */}
+            {/* 우측 서울대 마크 영역 (로컬 파일 연동) */}
             <div className="hidden lg:flex w-full lg:w-2/5 justify-end items-center pr-8 opacity-90 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Seoul_National_University_logo.svg/800px-Seoul_National_University_logo.svg.png" 
+                src="/snu-logo.png" 
                 alt="서울대학교 마크" 
-                className="w-72 h-72 object-contain drop-shadow-2xl"
+                className="w-64 h-64 object-contain drop-shadow-2xl"
               />
             </div>
           </div>
