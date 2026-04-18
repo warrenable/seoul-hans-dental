@@ -30,59 +30,72 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 2. Hero Section (원장님 작성 코드 반영) */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden">
-        {/* 1. 배경 이미지: 원장님의 정교한 진료 철학을 상징하는 이미지 */}
+      {/* 2. Hero Section */}
+      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-gray-900">
+        {/* 1. 배경 이미지: opacity 50% 적용 및 좌측 가독성 그라데이션 추가 */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80" 
             alt="서울한스치과 진료실 전경"
-            className="w-full h-full object-cover brightness-[0.45]"
+            className="w-full h-full object-cover opacity-50"
           />
-          {/* 이미지 위에 은은한 그라데이션을 추가하여 텍스트 가독성을 높였습니다. */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 text-center text-white">
+        <div className="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center mt-12">
           
-          {/* 4. 전문가 배지 섹션: 공학적 배경과 치의학 전문성을 시각적으로 분리 */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in-up">
-            {/* 공학 배경 강조 배지 (다크 테마) */}
-            <span className="px-4 py-1.5 bg-slate-900/90 backdrop-blur-md rounded-full text-sm font-bold border border-blue-400/60 text-blue-300 shadow-lg">
-              서울대학교 전기공학부 졸업
-            </span>
+          {/* 상단 텍스트(좌측)와 로고(우측)를 나누는 컨테이너 */}
+          <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8">
             
-            {/* 의료 전문성 배지 (메디컬 블루/화이트 테마) */}
-            <span className="px-4 py-1.5 bg-blue-600/90 rounded-full text-sm font-semibold text-white shadow-md">
-              서울대학교 치의학대학원 졸업
-            </span>
-            <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
-              보건복지부 인증 통합치의학 전문의
-            </span>
-            <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
-              가톨릭대학교 치과교정학 전공
-            </span>
+            {/* 좌측 텍스트 영역 */}
+            <div className="w-full lg:w-3/5 text-left text-white">
+              
+              {/* 전문가 배지 (좌측 정렬 적용) */}
+              <div className="flex flex-wrap justify-start gap-3 mb-10 animate-fade-in-up">
+                <span className="px-4 py-1.5 bg-slate-900/90 backdrop-blur-md rounded-full text-sm font-bold border border-blue-400/60 text-blue-300 shadow-lg">
+                  서울대학교 전기공학부 졸업
+                </span>
+                <span className="px-4 py-1.5 bg-blue-600/90 rounded-full text-sm font-semibold text-white shadow-md">
+                  서울대학교 치의학대학원 졸업
+                </span>
+                <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
+                  보건복지부 인증 통합치의학 전문의
+                </span>
+                <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
+                  가톨릭대학교 치과교정학 전공
+                </span>
+              </div>
+
+              {/* 메인 Title */}
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-[1.2] tracking-tight">
+                처음 뵙는 순간부터 마지막 미소까지,<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">
+                  원장인 제가 직접
+                </span> 곁을 지킵니다.
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-lg md:text-2xl text-gray-200 leading-relaxed font-light max-w-2xl">
+                분업화된 치과 시스템 속에서 길을 잃지 마세요. <br className="hidden md:block" />
+                제 환자는 제가 끝까지 책임집니다. <br className="hidden md:block" />
+                모든 치료 과정을 <span className="font-semibold text-white underline decoration-blue-500">하나의 지름길</span>로 인도합니다.
+              </p>
+            </div>
+
+            {/* 우측 서울대 마크 영역 */}
+            <div className="hidden lg:flex w-full lg:w-2/5 justify-end items-center pr-8 opacity-90 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Seoul_National_University_logo.svg/800px-Seoul_National_University_logo.svg.png" 
+                alt="서울대학교 마크" 
+                className="w-72 h-72 object-contain drop-shadow-2xl"
+              />
+            </div>
           </div>
 
-          {/* 2. 메인 Title: 책임감 있는 원장의 목소리 */}
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-[1.2] tracking-tight">
-            처음 뵙는 순간부터 마지막 미소까지,<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">
-              원장인 제가 직접
-            </span> 곁을 지킵니다.
-          </h1>
-
-          {/* 3. Subtitle: 통합 진료의 가치 전달 */}
-          <p className="text-lg md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            분업화된 치과 시스템 속에서 길을 잃지 마세요. <br className="hidden md:block" />
-            제 환자는 제가 끝까지 책임집니다. <br className="hidden md:block" />
-            모든 치과 치료 과정을 <span className="font-semibold text-white text-underline decoration-blue-500">하나의 지름길</span>로 인도합니다.
-          </p>
-
-          {/* 5. 예약하기 버튼: 네이버 브랜드 컬러 적용 */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+          {/* 예약하기 버튼 (독립된 하단 중앙 정렬) */}
+          <div className="w-full flex justify-center mt-16 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <a 
-              href="https://booking.naver.com/booking/13/bizes/123456" // 원장님의 실제 네이버 예약 링크로 수정하세요.
+              href="https://booking.naver.com/booking/13/bizes/804953"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 px-12 py-5 bg-[#03C75A] hover:bg-[#02b351] text-white text-xl font-bold rounded-xl transition-all shadow-[0_10px_20px_rgba(3,199,90,0.3)] hover:shadow-[0_15px_30px_rgba(3,199,90,0.4)] transform hover:-translate-y-1"
@@ -116,7 +129,7 @@ export default function Home() {
                   <li>· 서울대학교 전기공학부 졸업</li>
                   <li>· 서울대학교 치과대학 졸업</li>
                   <li>· 보건복지부 인증 통합치의학과 전문의</li>
-                  <li>· 가톨릭대학교 임상치과학대학원 치과교정학과 석박사</li>
+                  <li>· 가톨릭대학교 임상치과학대학원 치과교정학과 석박사 과정</li>
                   <li>· 대한치과교정학회 정회원</li>
                 </ul>
               </div>
