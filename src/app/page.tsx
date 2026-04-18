@@ -30,37 +30,73 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 2. Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-center">
+      {/* 2. Hero Section (원장님 작성 코드 반영) */}
+      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden">
+        {/* 1. 배경 이미지: 원장님의 정교한 진료 철학을 상징하는 이미지 */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80" 
-            alt="Engineering and Dentistry" 
-            className="w-full h-full object-cover opacity-20 grayscale"
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80" 
+            alt="서울한스치과 진료실 전경"
+            className="w-full h-full object-cover brightness-[0.45]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/80 via-white/60 to-white"></div>
+          {/* 이미지 위에 은은한 그라데이션을 추가하여 텍스트 가독성을 높였습니다. */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 mt-20">
-          <p className="text-sm font-bold tracking-[0.2em] text-blue-600 mb-6">ENGINEERING & DENTISTRY</p>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-gray-900 leading-[1.3] tracking-tight">
-            설계(Engineering)하고, <br className="hidden md:block" /> 진료(Treat)합니다.
-          </h1>
-          <p className="text-lg md:text-xl text-gray-700 mb-12 font-medium">
-            코드 한 줄의 정교함으로 치아의 미래를 그리는 서울한스치과
-          </p>
+        <div className="relative z-10 container mx-auto px-6 text-center text-white">
           
-          <div className="flex flex-wrap justify-center gap-3">
-             {['서울대 전기공학부 출신', '통합치의학과 전문의', '디지털 정밀 진료'].map((item) => (
-               <span key={item} className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full shadow-sm text-sm font-bold border border-blue-100 text-blue-900">
-                 {item}
-               </span>
-             ))}
+          {/* 4. 전문가 배지 섹션: 공학적 배경과 치의학 전문성을 시각적으로 분리 */}
+          <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in-up">
+            {/* 공학 배경 강조 배지 (다크 테마) */}
+            <span className="px-4 py-1.5 bg-slate-900/90 backdrop-blur-md rounded-full text-sm font-bold border border-blue-400/60 text-blue-300 shadow-lg">
+              서울대학교 전기공학부 졸업
+            </span>
+            
+            {/* 의료 전문성 배지 (메디컬 블루/화이트 테마) */}
+            <span className="px-4 py-1.5 bg-blue-600/90 rounded-full text-sm font-semibold text-white shadow-md">
+              서울대학교 치의학대학원 졸업
+            </span>
+            <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
+              보건복지부 인증 통합치의학 전문의
+            </span>
+            <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium border border-white/20 text-white">
+              가톨릭대학교 치과교정학 전공
+            </span>
+          </div>
+
+          {/* 2. 메인 Title: 책임감 있는 원장의 목소리 */}
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-[1.2] tracking-tight">
+            처음 뵙는 순간부터 마지막 미소까지,<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">
+              원장인 제가 직접
+            </span> 곁을 지킵니다.
+          </h1>
+
+          {/* 3. Subtitle: 통합 진료의 가치 전달 */}
+          <p className="text-lg md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+            분업화된 치과 시스템 속에서 길을 잃지 마세요. <br className="hidden md:block" />
+            제 환자는 제가 끝까지 책임집니다. <br className="hidden md:block" />
+            모든 치과 치료 과정을 <span className="font-semibold text-white text-underline decoration-blue-500">하나의 지름길</span>로 인도합니다.
+          </p>
+
+          {/* 5. 예약하기 버튼: 네이버 브랜드 컬러 적용 */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            <a 
+              href="https://booking.naver.com/booking/13/bizes/123456" // 원장님의 실제 네이버 예약 링크로 수정하세요.
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 px-12 py-5 bg-[#03C75A] hover:bg-[#02b351] text-white text-xl font-bold rounded-xl transition-all shadow-[0_10px_20px_rgba(3,199,90,0.3)] hover:shadow-[0_15px_30px_rgba(3,199,90,0.4)] transform hover:-translate-y-1"
+            >
+              <span>네이버로 간편 예약하기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* 3. Medical Staff & Director's Message (Hero 직후 배치 및 레이아웃 확장) */}
+      {/* 3. Medical Staff & Director's Message */}
       <section id="staff" className="py-24 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
@@ -101,7 +137,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Brand Core 신설 (기존 환자 여정 UI 활용) */}
+      {/* 4. Brand Core */}
       <section id="brand-core" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -133,7 +169,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. The Developer's Note 신설 (테크니컬 스토리텔링) */}
+      {/* 5. The Developer's Note */}
       <section id="dev-note" className="py-24 bg-[#111827] text-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-16">
@@ -166,7 +202,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. All-in-One Roadmap 신설 (타임라인 UI) */}
+      {/* 6. All-in-One Roadmap */}
       <section id="roadmap" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -216,7 +252,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Hans Film (무삭제 라미네이트 - 기존 템플릿 유지) */}
+      {/* 7. Hans Film */}
       <section id="hans-film" className="py-32 bg-[#1a1a1a] text-white relative overflow-hidden border-t border-gray-800">
         <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20">
           <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=1000&q=80" alt="Film Background" className="w-full h-full object-cover" />
@@ -232,10 +268,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. 증례별 전후사진 슬라이더 (컴포넌트 호출 유지) */}
+      {/* 8. 증례별 전후사진 슬라이더 */}
       <CasesSlider />
 
-      {/* 9. Live Blog Feed 개편 (실시간 소통하는 진료실) */}
+      {/* 9. Live Blog Feed */}
       <section id="blog" className="py-24 bg-gray-50 border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-end mb-10">
@@ -249,7 +285,6 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-            {/* API 연동 또는 수동 업데이트용 카드 */}
             <a href="https://blog.naver.com/seoulhansdental" target="_blank" rel="noreferrer" className="block bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all group">
               <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full mb-4">교정학 연구 일지</span>
               <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors leading-snug">
