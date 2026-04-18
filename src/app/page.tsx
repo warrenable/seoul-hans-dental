@@ -30,26 +30,33 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 2. Hero Section (모바일 최적화 및 그라데이션 배경 적용) */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#0f172a]">
+      {/* 2. Hero Section (화이트 기반 그라데이션 및 공학 패턴 적용) */}
+      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-white">
         
-        {/* 공학적인 느낌을 더해주는 은은한 모눈종이(Grid) 패턴 (해상도 무관 깨짐 없음) */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        {/* 하얀색 기반의 부드러운 그라데이션과 우측 공학 패턴 배경 */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-blue-50/30 to-white">
+          <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-[0.03] bg-[linear-gradient(to_right,#004ab3_1px,transparent_1px),linear-gradient(to_bottom,#004ab3_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+          {/* 정밀한 도면 느낌을 주는 기하학적 라인 패턴 추가 */}
+          <svg className="absolute right-0 top-1/4 w-1/2 h-1/2 opacity-[0.05] text-blue-900" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.5">
+            <circle cx="50" cy="50" r="40"/>
+            <path d="M10 50 H90 M50 10 V90 M21.7 21.7 L78.3 78.3 M21.7 78.3 L78.3 21.7"/>
+          </svg>
+        </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center mt-12">
           
-          {/* 4. 전문가 배지 섹션: 모바일 최적화 (가로 정렬 및 크기 조정) */}
+          {/* 전문가 배지 섹션: 모바일 최적화 (가로 정렬 및 화이트/블루 톤 조정) */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-12 animate-fade-in-up w-full">
-            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-slate-900/90 backdrop-blur-md rounded-full text-xs md:text-sm font-bold border border-blue-400/60 text-blue-300 shadow-lg whitespace-nowrap">
+            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-50 rounded-full text-xs md:text-sm font-bold border border-blue-100 text-blue-900 shadow-sm whitespace-nowrap">
               서울대학교 전기공학부 졸업
             </span>
-            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-600/90 rounded-full text-xs md:text-sm font-semibold text-white shadow-md whitespace-nowrap">
+            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-600 rounded-full text-xs md:text-sm font-semibold text-white shadow-md whitespace-nowrap">
               서울대학교 치의학대학원 졸업
             </span>
-            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-white/10 backdrop-blur-md rounded-full text-xs md:text-sm font-medium border border-white/20 text-white whitespace-nowrap">
+            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-gray-50 rounded-full text-xs md:text-sm font-medium border border-gray-100 text-gray-700 whitespace-nowrap">
               보건복지부 인증 통합치의학 전문의
             </span>
-            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-white/10 backdrop-blur-md rounded-full text-xs md:text-sm font-medium border border-white/20 text-white whitespace-nowrap">
+            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-gray-50 rounded-full text-xs md:text-sm font-medium border border-gray-100 text-gray-700 whitespace-nowrap">
               가톨릭대학교 치과교정학 전공
             </span>
           </div>
@@ -57,30 +64,30 @@ export default function Home() {
           {/* 상단 텍스트(좌측)와 로고(우측)를 나누는 컨테이너 */}
           <div className="flex flex-col lg:flex-row items-center justify-between w-full gap-8">
             
-            {/* 좌측 텍스트 영역 */}
-            <div className="w-full lg:w-3/5 text-center lg:text-left text-white">
+            {/* 좌측 텍스트 영역: 화이트 배경에 맞춘 텍스트 색상 변경 */}
+            <div className="w-full lg:w-3/5 text-center lg:text-left text-gray-900">
               {/* 메인 Title */}
               <h1 className="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-[1.3] tracking-tight">
                 처음 뵙는 순간부터 마지막 미소까지,<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
                   원장인 제가 직접
                 </span> 곁을 지킵니다.
               </h1>
 
               {/* Subtitle */}
-              <p className="text-base md:text-xl text-gray-200 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0">
+              <p className="text-base md:text-xl text-gray-600 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0">
                 분업화된 치과 시스템 속에서 길을 잃지 마세요. <br className="hidden md:block" />
                 제 환자는 제가 끝까지 책임집니다. <br className="hidden md:block" />
-                모든 치료 과정을 <span className="font-semibold text-white underline decoration-blue-500">하나의 지름길</span>로 인도합니다.
+                모든 치료 과정을 <span className="font-semibold text-blue-700 underline decoration-blue-300 decoration-2 offset-2">하나의 지름길</span>로 인도합니다.
               </p>
             </div>
 
-            {/* 우측 서울대 마크 영역 (로컬 파일 연동) */}
-            <div className="hidden lg:flex w-full lg:w-2/5 justify-end items-center pr-8 opacity-90 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            {/* 우측 서울대 마크 영역 (로컬 파일 연동, 화이트 배경에 선명하게 노출) */}
+            <div className="hidden lg:flex w-full lg:w-2/5 justify-end items-center pr-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <img 
                 src="/snu-logo.png" 
                 alt="서울대학교 마크" 
-                className="w-56 h-56 md:w-64 md:h-64 object-contain drop-shadow-2xl"
+                className="w-56 h-56 md:w-64 md:h-64 object-contain drop-shadow-xl"
               />
             </div>
           </div>
@@ -122,7 +129,7 @@ export default function Home() {
                   <li>· 서울대학교 전기공학부 졸업</li>
                   <li>· 서울대학교 치과대학 졸업</li>
                   <li>· 보건복지부 인증 통합치의학과 전문의</li>
-                  <li>· 가톨릭대학교 임상치과학대학원 치과교정학과 석박사 과정</li>
+                  <li>· 가톨릭대학교 임상치과학대학원 치과교정학 석박사 과정</li>
                   <li>· 대한치과교정학회 정회원</li>
                 </ul>
               </div>
@@ -258,7 +265,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Hans Film */}
+      {/* 7. Hans Film (무삭제 라미네이트 - 기존 템플릿 유지) */}
       <section id="hans-film" className="py-32 bg-[#1a1a1a] text-white relative overflow-hidden border-t border-gray-800">
         <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20">
           <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=1000&q=80" alt="Film Background" className="w-full h-full object-cover" />
@@ -274,10 +281,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. 증례별 전후사진 슬라이더 */}
+      {/* 8. 증례별 전후사진 슬라이더 (컴포넌트 호출 유지) */}
       <CasesSlider />
 
-      {/* 9. Live Blog Feed */}
+      {/* 9. Live Blog Feed 개편 (실시간 소통하는 진료실) */}
       <section id="blog" className="py-24 bg-gray-50 border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-end mb-10">
@@ -291,6 +298,7 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
+            {/* API 연동 또는 수동 업데이트용 카드 */}
             <a href="https://blog.naver.com/seoulhansdental" target="_blank" rel="noreferrer" className="block bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all group">
               <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full mb-4">교정학 연구 일지</span>
               <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors leading-snug">
