@@ -30,20 +30,18 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 2. Hero Section */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-slate-50 border-b border-gray-100">
+      {/* 2. Hero Section (빈 공간을 하얀색으로 확실하게 덮도록 bg-white 추가) */}
+      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-white">
         
-        {/* 원장님이 제작하신 커스텀 배경 이미지: 크기 조정 및 중앙 배치 */}
-        <div className="absolute inset-0 z-0">
-          <div className="relative w-[80%] md:w-[70%] h-full mx-auto">
-            <Image 
-              src="/hero-bg.webp" 
-              alt="서울한스치과 메인 배경"
-              fill
-              priority
-              className="object-cover"
-            />
-          </div>
+        {/* 원장님이 제작하신 커스텀 배경 이미지: 컨테이너에 bg-white를 추가하여 양옆 빈 공간을 하얗게 채움 */}
+        <div className="absolute inset-0 z-0 bg-white">
+          <Image 
+            src="/hero-bg.webp" 
+            alt="서울한스치과 메인 배경"
+            fill
+            priority
+            className="object-cover"
+          />
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center mt-12">
@@ -77,7 +75,7 @@ export default function Home() {
                 </span>
               </h1>
 
-              {/* Subtitle (문구 변경 및 폰트 굵기/색상 강조) */}
+              {/* Subtitle */}
               <p className="text-base md:text-xl text-gray-800 leading-relaxed font-medium mx-auto max-w-2xl">
                 분업화된 치과 시스템 속에서 길을 잃지 마세요. <br className="hidden md:block" />
                 체계적인 진단부터, 교정과 수술까지, 당신의 모든 데이터를 가장 잘 아는 원장이 곁을 지킵니다. <br className="hidden md:block" />
@@ -250,7 +248,7 @@ export default function Home() {
                   <span className="text-gray-800 font-bold text-sm mb-2 block">Phase 03. 임플란트 & 평생 유지 관리</span>
                   <h3 className="text-xl font-bold text-gray-800 mb-3">치료의 마침표, 그리고 새로운 시작</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    결손된 치아는 디지털 가이드 임플란트로 완벽하게 복원하며, 모든 치료가 끝난 후에도 교정 유지 장치 체크와 보철물 사후 관리를 원장 1인이 책임지고 평생 관리합니다. 주치의가 바뀌어 생기는 소통의 오류는 없습니다.
+                    결손된 치아는 디지털 가이드 임플란트로 완벽하게 복원하며, 모든 치료가 끝난 후에도 교정 유지 장치 체크와 보철물 사후 관리리를 원장 1인이 책임지고 평생 관리합니다. 주치의가 바뀌어 생기는 소통의 오류는 없습니다.
                   </p>
                 </div>
               </div>
