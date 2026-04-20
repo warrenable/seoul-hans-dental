@@ -30,59 +30,68 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 2. Hero Section (Custom 배경 이미지 크기 조정 및 오버레이 제거) */}
-      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-slate-50 border-b border-gray-100">
+      {/* 2. Hero Section (Custom 배경 이미지 적용) */}
+      <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-slate-900">
         
-        {/* 원장님이 제작하신 커스텀 배경 이미지: 크기 조정 및 중앙 배치 */}
+        {/* 원장님이 제작하신 커스텀 배경 이미지 */}
         <div className="absolute inset-0 z-0">
-          <div className="relative w-[80%] md:w-[70%] h-full mx-auto">
-            <Image 
-              src="/hero-bg.webp" 
-              alt="서울한스치과 메인 배경"
-              fill
-              priority
-              className="object-cover"
-            />
-          </div>
+          <Image 
+            src="/hero-bg.webp" 
+            alt="서울한스치과 메인 배경"
+            fill
+            priority
+            className="object-cover"
+          />
+          {/* 이미지 위에 텍스트 가독성을 위한 부드러운 다크 그라데이션 오버레이 */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center mt-12">
           
-          {/* 전문가 배지 섹션: 밝은 배경에 어울리는 색상 조정 */}
+          {/* 전문가 배지 섹션: 배경 이미지와 대비되는 다크/화이트 톤 */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-12 animate-fade-in-up w-full">
-            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-50 rounded-full text-xs md:text-sm font-bold border border-blue-100 text-blue-900 shadow-sm whitespace-nowrap">
+            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-slate-900/90 backdrop-blur-md rounded-full text-xs md:text-sm font-bold border border-blue-400/60 text-blue-300 shadow-lg whitespace-nowrap">
               서울대학교 전기공학부 졸업
             </span>
-            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-900 rounded-full text-xs md:text-sm font-semibold text-white shadow-md whitespace-nowrap">
+            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-600/90 rounded-full text-xs md:text-sm font-semibold text-white shadow-md whitespace-nowrap">
               서울대학교 치의학대학원 졸업
             </span>
-            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-gray-50 rounded-full text-xs md:text-sm font-medium border border-gray-100 text-gray-700 whitespace-nowrap">
+            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-white/10 backdrop-blur-md rounded-full text-xs md:text-sm font-medium border border-white/20 text-white whitespace-nowrap">
               통합치의학 전문의
             </span>
-            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-gray-50 rounded-full text-xs md:text-sm font-medium border border-gray-100 text-gray-700 whitespace-nowrap">
+            <span className="px-3 py-1 md:px-4 md:py-1.5 bg-white/10 backdrop-blur-md rounded-full text-xs md:text-sm font-medium border border-white/20 text-white whitespace-nowrap">
               가톨릭대학교 치과교정학 전공
             </span>
           </div>
 
-          {/* 상단 텍스트(중앙) 컨테이너: 서울대 마크 제거 및 텍스트 색상 변경 */}
+          {/* 상단 텍스트(중앙)와 로고(우측 절대배치) 컨테이너 */}
           <div className="relative w-full flex justify-center items-center">
             
-            {/* 중앙 텍스트 영역 (밝은 배경용 검은색 텍스트) */}
-            <div className="w-full max-w-3xl text-center text-gray-900 relative z-10">
+            {/* 중앙 텍스트 영역 (다크 배경용 화이트 텍스트) */}
+            <div className="w-full max-w-3xl text-center text-white relative z-10">
               {/* 메인 Title */}
               <h1 className="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-[1.3] tracking-tight">
-                당신의 주치의는 <span className="text-blue-900">바뀌지 않습니다.</span><br/>
-                <span className="text-2xl md:text-3xl font-bold text-gray-700 mt-4 block leading-snug">
+                당신의 주치의는 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">바뀌지 않습니다.</span><br/>
+                <span className="text-2xl md:text-3xl font-bold text-gray-200 mt-4 block leading-snug">
                   진료의 시작부터 끝까지, <br className="md:hidden" />책임의 무게를 아는 단 한 명의 원장.
                 </span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-base md:text-xl text-gray-600 leading-relaxed font-light mx-auto">
+              <p className="text-base md:text-xl text-gray-300 leading-relaxed font-light mx-auto">
                 분업화된 치과 시스템 속에서 길을 잃지 마세요. <br className="hidden md:block" />
                 제 환자는 제가 끝까지 책임집니다. <br className="hidden md:block" />
-                모든 치료 과정을 <span className="font-semibold text-blue-900 underline decoration-blue-900 decoration-2 underline-offset-4">하나의 지름길</span>로 인도합니다.
+                모든 치료 과정을 <span className="font-semibold text-white underline decoration-blue-500 decoration-2 underline-offset-4">하나의 지름길</span>로 인도합니다.
               </p>
+            </div>
+
+            {/* 우측 서울대 마크 영역 */}
+            <div className="hidden lg:block absolute right-0 xl:right-12 top-1/2 transform -translate-y-1/2 opacity-90 animate-fade-in-up z-0 pointer-events-none" style={{ animationDelay: '0.2s' }}>
+              <img 
+                src="/snu-logo.png" 
+                alt="서울대학교 마크" 
+                className="w-56 h-56 md:w-64 md:h-64 object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
 
@@ -122,7 +131,7 @@ export default function Home() {
                 <ul className="text-gray-600 space-y-3 text-[16px] leading-relaxed font-medium">
                   <li>· 서울대학교 전기공학부 졸업</li>
                   <li>· 서울대학교 치과대학 졸업</li>
-                  <li>· 통합치의학 전문의</li>
+                  <li>· 보건복지부 인증 통합치의학과 전문의</li>
                   <li>· 가톨릭대학교 임상치과학대학원 치과교정학 석박사 과정</li>
                   <li>· 대한치과교정학회 정회원</li>
                 </ul>
@@ -176,7 +185,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. The Developer's Note (밝은 테마로 변경) */}
+      {/* 5. The Developer's Note */}
       <section id="dev-note" className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-16">
