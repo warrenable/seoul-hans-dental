@@ -11,11 +11,26 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('pain-free');
 
   return (
-    <div className="bg-white min-h-screen font-sans text-gray-900 scroll-smooth">
+    <div className="bg-white min-h-screen font-sans text-gray-900 scroll-smooth relative">
       <Head>
         <title>서울한스치과 - 설계하고 진료하는 공학도 출신 치과의사</title>
         <meta name="description" content="대구 동구 동부로에 위치한 서울한스치과입니다. 서울대 전기공학부 출신 대표원장의 공학적 정밀 진료." />
       </Head>
+
+      {/* 화면 하단 고정 예약 버튼 (플로팅) */}
+      <div className="fixed bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-[100] w-[90%] max-w-[400px] flex justify-center">
+        <a 
+          href="https://booking.naver.com/booking/13/bizes/804953"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center justify-center gap-2 w-full px-8 py-4 md:py-5 bg-[#03C75A] hover:bg-[#02b351] text-white text-lg md:text-xl font-bold rounded-full transition-all shadow-[0_10px_25px_rgba(3,199,90,0.4)] hover:shadow-[0_15px_35px_rgba(3,199,90,0.5)] transform hover:-translate-y-1"
+        >
+          <span>네이버로 간편 예약하기</span>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
 
       {/* 1. Header */}
       <header className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 transition-all">
@@ -45,7 +60,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center mt-12">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center mt-12 pb-16">
           {/* 전문가 배지 섹션 */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-12 animate-fade-in-up w-full">
             <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-50 rounded-full text-xs md:text-sm font-bold border border-blue-100 text-blue-900 shadow-sm whitespace-nowrap">
@@ -78,20 +93,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-
-          <div className="w-full flex justify-center mt-12 md:mt-16 animate-fade-in-up relative z-20" style={{ animationDelay: '0.4s' }}>
-            <a 
-              href="https://booking.naver.com/booking/13/bizes/804953"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2 px-10 py-4 md:px-12 md:py-5 bg-[#03C75A] hover:bg-[#02b351] text-white text-lg md:text-xl font-bold rounded-xl transition-all shadow-[0_10px_20px_rgba(3,199,90,0.3)] hover:shadow-[0_15px_30px_rgba(3,199,90,0.4)] transform hover:-translate-y-1"
-            >
-              <span>네이버로 간편 예약하기</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
         </div>
       </section>
 
@@ -99,18 +100,21 @@ export default function Home() {
       <section id="staff" className="py-24 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
+            {/* 좌측: 원장님 프로필 이미지 */}
             <div className="w-full lg:w-1/2 lg:sticky lg:top-32">
               <div className="rounded-3xl overflow-hidden shadow-lg bg-gray-200 relative aspect-[3/4]">
-                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="대표원장 주호성" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                <img src="/doctor.jpg" alt="대표원장 주호성" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               </div>
             </div>
             
+            {/* 우측: 상세 약력 */}
             <div className="w-full lg:w-1/2 space-y-10">
               <div>
                 <p className="text-blue-900 font-bold tracking-[0.2em] text-sm mb-2">REPRESENTATIVE DIRECTOR</p>
                 <h2 className="text-4xl font-extrabold text-gray-900 mb-8">대표원장 주호성</h2>
                 
                 <div className="space-y-8">
+                  {/* 학력 및 이력 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학력 및 주요 이력
@@ -125,6 +129,7 @@ export default function Home() {
                     </ul>
                   </div>
 
+                  {/* 학회 활동 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학회 활동
@@ -136,6 +141,7 @@ export default function Home() {
                     </ul>
                   </div>
 
+                  {/* 인증 및 자문 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 인증 및 연구 자문
@@ -149,6 +155,7 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* 원장 메시지 */}
               <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 relative">
                 <div className="absolute top-0 right-0 -mt-3 -mr-3 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-serif text-2xl">"</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">왜 홈페이지를 직접 코딩하냐고요?</h3>
@@ -226,23 +233,23 @@ export default function Home() {
             <p className="text-gray-600">환자분의 고민에 가장 완벽한 해답을 제시하는 세 가지 특화 프로토콜</p>
           </div>
 
-          {/* 탭 버튼 영역 */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {/* 탭 버튼 영역 - 크기 확대 및 갭 증대 */}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-16">
             <button 
               onClick={() => setActiveTab('pain-free')}
-              className={`px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all ${activeTab === 'pain-free' ? 'bg-teal-500 text-white shadow-md transform -translate-y-1' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100'}`}
+              className={`px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-base md:text-xl transition-all ${activeTab === 'pain-free' ? 'bg-teal-500 text-white shadow-lg transform -translate-y-1' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100 hover:text-gray-700'}`}
             >
               한스 무통증 케어
             </button>
             <button 
               onClick={() => setActiveTab('smile')}
-              className={`px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all ${activeTab === 'smile' ? 'bg-[#c6a87c] text-white shadow-md transform -translate-y-1' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100'}`}
+              className={`px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-base md:text-xl transition-all ${activeTab === 'smile' ? 'bg-[#c6a87c] text-white shadow-lg transform -translate-y-1' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100 hover:text-gray-700'}`}
             >
               한스 스마일
             </button>
             <button 
               onClick={() => setActiveTab('digital')}
-              className={`px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all ${activeTab === 'digital' ? 'bg-gray-900 text-white shadow-md transform -translate-y-1' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100'}`}
+              className={`px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-base md:text-xl transition-all ${activeTab === 'digital' ? 'bg-gray-900 text-white shadow-lg transform -translate-y-1' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100 hover:text-gray-700'}`}
             >
               한스 디지털 셋업
             </button>
@@ -391,12 +398,12 @@ export default function Home() {
       </section>
 
       {/* 8. 카카오맵 컴포넌트 호출 */}
-      <div id="location">
+      <div id="location" className="pb-20"> {/* 플로팅 버튼 여백 확보 */}
         <KakaoMap />
       </div>
 
       {/* 9. Footer */}
-      <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200">
+      <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200 pb-32"> {/* 플로팅 버튼 영역 확보 위해 하단 패딩 증가 */}
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between border-b border-gray-300 pb-10 mb-8 gap-8">
             <div className="space-y-2">
