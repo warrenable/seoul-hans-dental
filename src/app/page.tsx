@@ -30,10 +30,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 2. Hero Section (빈 공간을 하얀색으로 확실하게 덮도록 bg-white 추가) */}
+      {/* 2. Hero Section */}
       <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-white">
         
-        {/* 원장님이 제작하신 커스텀 배경 이미지: 컨테이너에 bg-white를 추가하여 양옆 빈 공간을 하얗게 채움 */}
+        {/* 원장님이 제작하신 커스텀 배경 이미지 */}
         <div className="absolute inset-0 z-0 bg-white">
           <Image 
             src="/hero-bg.webp" 
@@ -46,13 +46,13 @@ export default function Home() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center mt-12">
           
-          {/* 전문가 배지 섹션 */}
+          {/* 전문가 배지 섹션: 업데이트된 주요 약력 반영 */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-12 animate-fade-in-up w-full">
             <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-50 rounded-full text-xs md:text-sm font-bold border border-blue-100 text-blue-900 shadow-sm whitespace-nowrap">
               서울대학교 전기공학부 졸업
             </span>
             <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-900 rounded-full text-xs md:text-sm font-semibold text-white shadow-md whitespace-nowrap">
-              서울대학교 치의학대학원 졸업
+              서울대학교 치의학 석사
             </span>
             <span className="px-3 py-1 md:px-4 md:py-1.5 bg-gray-50 rounded-full text-xs md:text-sm font-medium border border-gray-100 text-gray-700 whitespace-nowrap">
               통합치의학 전문의
@@ -62,12 +62,9 @@ export default function Home() {
             </span>
           </div>
 
-          {/* 상단 텍스트(중앙) 컨테이너 */}
+          {/* 중앙 텍스트 컨테이너 */}
           <div className="relative w-full flex justify-center items-center">
-            
-            {/* 중앙 텍스트 영역 */}
-            <div className="w-full max-w-3xl text-center text-gray-900 relative z-10">
-              {/* 메인 Title */}
+            <div className="w-full max-w-4xl text-center text-gray-900 relative z-10">
               <h1 className="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-[1.3] tracking-tight">
                 당신의 주치의는 <span className="text-blue-900">바뀌지 않습니다.</span><br/>
                 <span className="text-2xl md:text-3xl font-bold text-gray-700 mt-4 block leading-snug">
@@ -75,7 +72,6 @@ export default function Home() {
                 </span>
               </h1>
 
-              {/* Subtitle */}
               <p className="text-base md:text-xl text-gray-800 leading-relaxed font-medium mx-auto max-w-2xl">
                 분업화된 치과 시스템 속에서 길을 잃지 마세요. <br className="hidden md:block" />
                 체계적인 진단부터, 교정과 수술까지, 당신의 모든 데이터를 가장 잘 아는 원장이 곁을 지킵니다. <br className="hidden md:block" />
@@ -101,38 +97,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Medical Staff & Director's Message */}
+      {/* 3. Medical Staff & Director's Message (약력 수정 반영) */}
       <section id="staff" className="py-24 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-16 items-start">
             {/* 좌측: 원장님 프로필 이미지 */}
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2 lg:sticky lg:top-32">
               <div className="rounded-3xl overflow-hidden shadow-lg bg-gray-200 relative aspect-[3/4]">
                 <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="대표원장 주호성" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               </div>
             </div>
             
-            {/* 우측: 약력 및 메시지 */}
-            <div className="w-full lg:w-1/2 space-y-8">
+            {/* 우측: 상세 약력 */}
+            <div className="w-full lg:w-1/2 space-y-10">
               <div>
                 <p className="text-blue-900 font-bold tracking-[0.2em] text-sm mb-2">REPRESENTATIVE DIRECTOR</p>
-                <h2 className="text-4xl font-extrabold text-gray-900 mb-6">대표원장 주호성</h2>
-                <ul className="text-gray-600 space-y-3 text-[16px] leading-relaxed font-medium">
-                  <li>· 서울대학교 전기공학부 졸업</li>
-                  <li>· 서울대학교 치과대학 졸업</li>
-                  <li>· 통합치의학 전문의</li>
-                  <li>· 가톨릭대학교 임상치과학대학원 치과교정학 석박사 과정</li>
-                  <li>· 대한치과교정학회 정회원</li>
-                </ul>
+                <h2 className="text-4xl font-extrabold text-gray-900 mb-8">대표원장 주호성</h2>
+                
+                <div className="space-y-8">
+                  {/* 학력 및 이력 */}
+                  <div>
+                    <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학력 및 주요 이력
+                    </h3>
+                    <ul className="text-gray-600 space-y-2.5 text-[16px] leading-relaxed font-medium">
+                      <li>· 서울대학교 전기공학부 졸업</li>
+                      <li>· 서울대학교 치의학대학원 졸업</li>
+                      <li>· 서울대학교 치의학 석사</li>
+                      <li>· 서울대학교 치과병원 종합진료실 역임</li>
+                      <li className="text-blue-900 font-bold">· 보건복지부 인증 통합치의학 전문의</li>
+                      <li>· 가톨릭대학교 임상치과학대학원 치과교정학 전공</li>
+                    </ul>
+                  </div>
+
+                  {/* 학회 활동 */}
+                  <div>
+                    <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학회 활동
+                    </h3>
+                    <ul className="text-gray-600 space-y-2 text-[16px] leading-relaxed">
+                      <li>· 대한 통합치과학회 정회원</li>
+                      <li>· 대한 치과보철학회 정회원</li>
+                      <li>· 대한 악안면 임플란트학회 정회원</li>
+                    </ul>
+                  </div>
+
+                  {/* 인증 및 자문 */}
+                  <div>
+                    <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 인증 및 연구 자문
+                    </h3>
+                    <ul className="text-gray-600 space-y-2 text-[16px] leading-relaxed">
+                      <li>· 디지털투명교정 매직얼라인 우수사용치과</li>
+                      <li>· 디지털투명교정 슈어스마일 인증치과</li>
+                      <li>· 오스템임플란트 연구자문치과</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
-              {/* 원장이 직접 전하는 메시지 공간 */}
+              {/* 원장 메시지 */}
               <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 relative">
                 <div className="absolute top-0 right-0 -mt-3 -mr-3 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-serif text-2xl">"</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">왜 홈페이지를 직접 코딩하냐고요?</h3>
                 <p className="text-gray-600 leading-relaxed text-[15px]">
                   마케팅 업체의 정형화된 글로는 제 진료 철학을 온전히 담을 수 없었습니다. 
-                  그래서 Next.js 프레임워크를 활용해 클론코딩하며 이 공간을 한 줄 한 줄 직접 설계했습니다. <br/><br/>
+                  그래서 Next.js 프레임워크를 활용해 이 공간을 한 줄 한 줄 직접 설계했습니다. <br/><br/>
                   전기공학도로서 익힌 '시스템적 사고'와 오차를 허용하지 않는 '완벽주의'. 
                   홈페이지 코드를 짜는 이 집요함과 꼼꼼함 그대로, 환자분의 입안을 책임지고 진료합니다.
                 </p>
@@ -142,7 +172,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Brand Core */}
+      {/* 4. Brand Core (Logical & Responsible) */}
       <section id="brand-core" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -216,7 +246,7 @@ export default function Home() {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <div className="border-l-4 border-blue-100 ml-4 md:ml-12 space-y-12">
+            <div className="border-l-4 border-blue-900 ml-4 md:ml-12 space-y-12">
               {/* Timeline Item 1 */}
               <div className="relative pl-10 md:pl-16">
                 <div className="absolute w-6 h-6 bg-blue-900 rounded-full -left-[15px] top-1 border-4 border-white shadow-sm"></div>
@@ -248,7 +278,7 @@ export default function Home() {
                   <span className="text-gray-800 font-bold text-sm mb-2 block">Phase 03. 임플란트 & 평생 유지 관리</span>
                   <h3 className="text-xl font-bold text-gray-800 mb-3">치료의 마침표, 그리고 새로운 시작</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    결손된 치아는 디지털 가이드 임플란트로 완벽하게 복원하며, 모든 치료가 끝난 후에도 교정 유지 장치 체크와 보철물 사후 관리리를 원장 1인이 책임지고 평생 관리합니다. 주치의가 바뀌어 생기는 소통의 오류는 없습니다.
+                    결손된 치아는 디지털 가이드 임플란트로 완벽하게 복원하며, 모든 치료가 끝난 후에도 교정 유지 장치 체크와 보철물 사후 관리를 원장 1인이 책임지고 평생 관리합니다.
                   </p>
                 </div>
               </div>
@@ -311,9 +341,9 @@ export default function Home() {
             <a href="https://blog.naver.com/seoulhansdental" target="_blank" rel="noreferrer" className="block bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all group">
               <span className="inline-block px-3 py-1 bg-purple-50 text-purple-600 text-xs font-bold rounded-full mb-4">공학도의 시선</span>
               <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-purple-600 transition-colors leading-snug">
-                오차율 0.01mm에 도전하다: 최신 3D 프린터 세팅 후기
+                오스템임플란트 연구자문치과 선정: 데이터로 증명하는 식립의 정확도
               </h3>
-              <p className="text-sm text-gray-500 line-clamp-2 mb-4">장비를 도입하는 데 그치지 않고, 공학적 지식을 활용해 우리 병원만의 환경에 맞춘 최적의 캘리브레이션 값을 세팅했습니다.</p>
+              <p className="text-sm text-gray-500 line-clamp-2 mb-4">자문치과로서 최신 임플란트 기술을 가장 먼저 검토하고, 환자분들에게 최적의 재료와 공법을 제안합니다.</p>
               <p className="text-xs text-gray-400 font-mono">2 weeks ago</p>
             </a>
           </div>
