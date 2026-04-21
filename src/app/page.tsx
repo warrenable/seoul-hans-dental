@@ -1,10 +1,15 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import CasesSlider from '@/components/CasesSlider';
 import KakaoMap from '@/components/KakaoMap';
 
 export default function Home() {
+  // 한스 시그니처 탭 관리를 위한 State
+  const [activeTab, setActiveTab] = useState('pain-free');
+
   return (
     <div className="bg-white min-h-screen font-sans text-gray-900 scroll-smooth">
       <Head>
@@ -20,10 +25,8 @@ export default function Home() {
           </div>
           <nav className="hidden lg:flex space-x-8 text-[15px] font-semibold text-gray-700">
             <a href="#staff" className="hover:text-blue-900 transition-colors">원장 소개</a>
-            <a href="#brand-core" className="hover:text-blue-900 transition-colors">진료 철학</a>
-            <a href="#dev-note" className="hover:text-blue-900 transition-colors">Developer's Note</a>
-            <a href="#roadmap" className="hover:text-blue-900 transition-colors">통합 로드맵</a>
-            <a href="#hans-film" className="hover:text-blue-900 transition-colors">Hans Film</a>
+            <a href="#philosophy" className="hover:text-blue-900 transition-colors">진료 철학</a>
+            <a href="#signature" className="hover:text-blue-900 transition-colors">한스 시그니처</a>
             <a href="#blog" className="hover:text-blue-900 transition-colors">진료 일기</a>
             <a href="#location" className="hover:text-blue-900 transition-colors">오시는 길</a>
           </nav>
@@ -32,8 +35,6 @@ export default function Home() {
 
       {/* 2. Hero Section */}
       <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden bg-white">
-        
-        {/* 원장님이 제작하신 커스텀 배경 이미지 */}
         <div className="absolute inset-0 z-0 bg-white">
           <Image 
             src="/hero-bg.webp" 
@@ -45,8 +46,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center mt-12">
-          
-          {/* 전문가 배지 섹션: 업데이트된 주요 약력 반영 */}
+          {/* 전문가 배지 섹션 */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-12 animate-fade-in-up w-full">
             <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-50 rounded-full text-xs md:text-sm font-bold border border-blue-100 text-blue-900 shadow-sm whitespace-nowrap">
               서울대학교 전기공학부 졸업
@@ -62,7 +62,6 @@ export default function Home() {
             </span>
           </div>
 
-          {/* 중앙 텍스트 컨테이너 */}
           <div className="relative w-full flex justify-center items-center">
             <div className="w-full max-w-4xl text-center text-gray-900 relative z-10">
               <h1 className="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-[1.3] tracking-tight">
@@ -80,7 +79,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 예약하기 버튼 */}
           <div className="w-full flex justify-center mt-12 md:mt-16 animate-fade-in-up relative z-20" style={{ animationDelay: '0.4s' }}>
             <a 
               href="https://booking.naver.com/booking/13/bizes/804953"
@@ -97,25 +95,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Medical Staff & Director's Message (약력 수정 반영) */}
+      {/* 3. Medical Staff & Director's Message */}
       <section id="staff" className="py-24 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
-            {/* 좌측: 원장님 프로필 이미지 */}
             <div className="w-full lg:w-1/2 lg:sticky lg:top-32">
               <div className="rounded-3xl overflow-hidden shadow-lg bg-gray-200 relative aspect-[3/4]">
                 <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80" alt="대표원장 주호성" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               </div>
             </div>
             
-            {/* 우측: 상세 약력 */}
             <div className="w-full lg:w-1/2 space-y-10">
               <div>
                 <p className="text-blue-900 font-bold tracking-[0.2em] text-sm mb-2">REPRESENTATIVE DIRECTOR</p>
                 <h2 className="text-4xl font-extrabold text-gray-900 mb-8">대표원장 주호성</h2>
                 
                 <div className="space-y-8">
-                  {/* 학력 및 이력 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학력 및 주요 이력
@@ -130,7 +125,6 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  {/* 학회 활동 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학회 활동
@@ -142,7 +136,6 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  {/* 인증 및 자문 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 인증 및 연구 자문
@@ -156,7 +149,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 원장 메시지 */}
               <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 relative">
                 <div className="absolute top-0 right-0 -mt-3 -mr-3 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-serif text-2xl">"</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">왜 홈페이지를 직접 코딩하냐고요?</h3>
@@ -172,141 +164,189 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Brand Core (Logical & Responsible) */}
-      <section id="brand-core" className="py-24 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">정교한 설계, 책임 있는 완성</h2>
-            <p className="text-gray-600 font-medium">서울한스치과를 지탱하는 두 개의 핵심 축, Logical & Responsible</p>
-          </div>
-          
-          <div className="flex flex-col md:flex-row justify-between items-start relative mt-12">
-            <div className="hidden md:block absolute top-12 left-1/6 right-1/6 w-2/3 mx-auto h-0.5 bg-gray-200 z-0"></div>
-            
-            <div className="relative z-10 flex-1 text-center px-4 mb-10 md:mb-0">
-              <div className="w-24 h-24 mx-auto bg-white border-4 border-blue-900 rounded-full flex items-center justify-center text-sm font-black text-blue-900 mb-6 shadow-sm">LOGICAL</div>
-              <h3 className="font-bold text-lg mb-3">Engineering Mind</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">전기공학적 베이스를 바탕으로 한<br/>데이터 기반의 정확한 진단과<br/>최첨단 디지털 장비 활용의 근거</p>
-            </div>
-
-            <div className="relative z-10 flex-1 text-center px-4 mb-10 md:mb-0">
-              <div className="w-24 h-24 mx-auto bg-white border-4 border-gray-800 rounded-full flex items-center justify-center text-sm font-black text-gray-800 mb-6 shadow-sm">RESPONSIBLE</div>
-              <h3 className="font-bold text-lg mb-3">Total Care</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">통합치의학 전문의로서<br/>"내 환자는 내가 끝까지 책임진다"는<br/>진료의 완결성</p>
-            </div>
-
-            <div className="relative z-10 flex-1 text-center px-4">
-              <div className="w-24 h-24 mx-auto bg-blue-900 border-4 border-blue-900 rounded-full flex items-center justify-center text-sm font-black text-white mb-6 shadow-sm">DIRECT</div>
-              <h3 className="font-bold text-lg mb-3">Direct Communication</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">마케팅 대행사의 가공된 언어가 아닌<br/>홈페이지 제작부터 진료까지<br/>원장의 날것 그대로의 진심</p>
-            </div>
-          </div>
+      {/* 4. Philosophy Section (공학적 통찰 & 디지털 토탈 케어) */}
+      <section id="philosophy" className="py-32 bg-[#0f172a] text-white relative overflow-hidden">
+        {/* 디지털 라인 배경 그래픽 */}
+        <div className="absolute inset-0 z-0 opacity-20">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="#3b82f6" strokeWidth="0.2" />
+            <path d="M0,70 Q25,45 50,70 T100,70" fill="none" stroke="#60a5fa" strokeWidth="0.1" />
+          </svg>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent"></div>
         </div>
-      </section>
 
-      {/* 5. The Developer's Note */}
-      <section id="dev-note" className="py-24 bg-white border-t border-gray-100">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="mb-16">
-            <p className="text-blue-900 font-mono text-sm mb-2">{`// THE DEVELOPER'S NOTE`}</p>
-            <h2 className="text-3xl font-bold mb-4 text-gray-900">원장이 직접 쓴 디지털 치과 가이드</h2>
-            <p className="text-gray-600">최신 디지털 장비를 도입하는 공학자의 시선</p>
-          </div>
+        <div className="max-w-6xl mx-auto px-4 relative z-10 text-center">
+          <p className="text-blue-400 font-mono text-sm mb-4 tracking-widest">{`// PHILOSOPHY OF SEOUL HANS`}</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">공학도의 통찰이 담긴 <br/> <span className="text-blue-400">디지털 토탈 케어</span></h2>
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-20 leading-relaxed">
+            교정부터 수술, 그리고 임플란트까지. 여러 병원을 전전할 필요 없습니다. <br className="hidden md:block"/>
+            하나의 치과, 단 한 명의 주치의가 환자분의 전체 구강 상태를 통제하는 정밀한 마스터플랜.
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-blue-900 transition-colors">
-              <div className="text-blue-900 mb-4">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          <div className="grid md:grid-cols-3 gap-8 text-left">
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-colors">
+              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-6">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-800">3D 프린터와 구강 스캐너의 본질</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                "왜 값비싼 장비를 고집할까요? 단순히 보여주기 위함이 아닙니다. 엔지니어의 관점에서 3D 구강 스캐너의 데이터 추출 정확도는 기존 아날로그 본뜨기의 변형 오차율을 혁신적으로 낮춥니다. 인풋(Input) 데이터가 완벽해야 아웃풋(보철물)이 완벽하다는 공학의 기본 원리입니다."
+              <h3 className="text-xl font-bold mb-3 text-white">전기공학부 출신의 통찰력</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                디지털 장비가 도출하는 결과값을 맹신하지 않습니다. 데이터의 산출 원리와 알고리즘을 이해하는 공학도의 시선으로 기계의 한계를 보완하고, 0.01mm의 오차를 통제합니다.
               </p>
             </div>
-            
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 hover:border-blue-900 transition-colors">
-              <div className="text-blue-900 mb-4">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-colors">
+              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-6">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-800">디지털 가이드 임플란트의 알고리즘</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                "임플란트 식립은 감으로 하는 것이 아닙니다. 수술 전 CT 데이터를 3D 공간에 매핑(Mapping)하여 뼈의 밀도와 신경관의 위치를 시뮬레이션합니다. 최적의 경로를 코딩하듯 미리 가이드를 설계하여, 절개를 최소화하고 회복 기간을 획기적으로 단축시킵니다."
+              <h3 className="text-xl font-bold mb-3 text-white">끊임없이 연구하는 주치의</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                가톨릭대 교정학 전공, 통합치의학 전문의. 멈추지 않고 공부합니다. 최신 AI 기술과 디지털 덴티스트리 논문을 진료실에 가장 먼저 도입하여 환자분께 최선의 선택지를 제안합니다.
+              </p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-500/50 transition-colors">
+              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-6">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-white">원스톱(One-Stop) 토탈 케어</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                교정 중 발치가 필요한 매복 사랑니, 임플란트 전후의 교합 관리. 파편화된 진료가 아닌, 하나의 거대한 시스템을 설계하듯 원장 한 명이 모든 과정을 유기적으로 아우릅니다.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6. All-in-One Roadmap */}
-      <section id="roadmap" className="py-24 bg-white border-t border-gray-50">
+      {/* 5. Hans Signature Series (Tab UI) */}
+      <section id="signature" className="py-32 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">All-in-One Roadmap: 끊김 없는 치료 경험</h2>
-            <p className="text-gray-600">"여기저기 다닐 필요 없습니다." 통합치의학 전문의가 환자의 시간을 아껴드립니다.</p>
+            <p className="text-blue-900 font-bold tracking-[0.2em] text-sm mb-4">HANS SIGNATURE CARE</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">오직 서울한스에만 있는 시그니처 케어</h2>
+            <p className="text-gray-600">환자분의 고민에 가장 완벽한 해답을 제시하는 세 가지 특화 프로토콜</p>
           </div>
 
-          <div className="max-w-3xl mx-auto">
-            <div className="border-l-4 border-blue-900 ml-4 md:ml-12 space-y-12">
-              {/* Timeline Item 1 */}
-              <div className="relative pl-10 md:pl-16">
-                <div className="absolute w-6 h-6 bg-blue-900 rounded-full -left-[15px] top-1 border-4 border-white shadow-sm"></div>
-                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                  <span className="text-blue-900 font-bold text-sm mb-2 block">Phase 01. 정밀 진단 & 치아 교정</span>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">교정학 전공의 심미안으로 기초 설계</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    단순히 치아를 펴는 것을 넘어, 얼굴 전체의 황금비율을 고려하여 교정 계획을 수립합니다. 교정 진행 중 발생할 수 있는 충치나 잇몸 질환도 타 병원 의뢰 없이 즉각적으로 대처합니다.
-                  </p>
-                </div>
-              </div>
+          {/* 탭 버튼 영역 */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            <button 
+              onClick={() => setActiveTab('pain-free')}
+              className={`px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all ${activeTab === 'pain-free' ? 'bg-teal-500 text-white shadow-md transform -translate-y-1' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100'}`}
+            >
+              한스 무통증 케어
+            </button>
+            <button 
+              onClick={() => setActiveTab('smile')}
+              className={`px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all ${activeTab === 'smile' ? 'bg-[#c6a87c] text-white shadow-md transform -translate-y-1' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100'}`}
+            >
+              한스 스마일
+            </button>
+            <button 
+              onClick={() => setActiveTab('digital')}
+              className={`px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all ${activeTab === 'digital' ? 'bg-gray-900 text-white shadow-md transform -translate-y-1' : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-100'}`}
+            >
+              한스 디지털 셋업
+            </button>
+          </div>
 
-              {/* Timeline Item 2 */}
-              <div className="relative pl-10 md:pl-16">
-                <div className="absolute w-6 h-6 bg-blue-900 rounded-full -left-[15px] top-1 border-4 border-white shadow-sm"></div>
-                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                  <span className="text-blue-900 font-bold text-sm mb-2 block">Phase 02. 외과적 처치</span>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">교정 중 발견된 매복 사랑니, 당일 발치</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    교정 도중 발치가 필요한 매복 사랑니가 발견되어도 문제없습니다. 통합치의학 전문의의 풍부한 임상 경험으로 대학병원에 갈 필요 없이 본원에서 안전하게 구강 외과적 수술을 진행합니다.
+          {/* 탭 콘텐츠 영역 */}
+          <div className="relative min-h-[500px]">
+            
+            {/* Tab 1: 한스 무통증 케어 */}
+            {activeTab === 'pain-free' && (
+              <div className="animate-fade-in-up bg-white rounded-3xl overflow-hidden shadow-xl border border-teal-50 flex flex-col md:flex-row">
+                <div className="w-full md:w-1/2 p-12 lg:p-16 flex flex-col justify-center">
+                  <span className="text-teal-500 font-bold tracking-widest text-sm mb-4">PAIN-FREE PROTOCOL</span>
+                  <h3 className="text-3xl font-extrabold text-gray-900 mb-6 leading-snug">치과는 아프고 시린 곳이라는 <br/> 편견을 깹니다.</h3>
+                  <p className="text-gray-600 mb-8 leading-relaxed">
+                    날카로운 기구로 긁어내는 공포는 이제 잊으세요. 부드러운 입자가 분사되는 에어플로우(Airflow) 장비와 원장님의 섬세한 손길이 만나, 마치 치과 스파(Spa)를 받듯 편안한 예방 관리가 가능합니다.
                   </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-center gap-3 text-gray-800 font-medium"><svg className="w-6 h-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> 섬세하고 꼼꼼한 사전 검진</li>
+                    <li className="flex items-center gap-3 text-gray-800 font-medium"><svg className="w-6 h-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> 통증과 시림을 최소화한 파우더 워터 분사</li>
+                    <li className="flex items-center gap-3 text-gray-800 font-medium"><svg className="w-6 h-6 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> 에어플로우를 통한 쾌적한 스케일링 체감</li>
+                  </ul>
+                </div>
+                <div className="w-full md:w-1/2 relative min-h-[300px] bg-teal-50">
+                  <Image src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="편안한 치과 진료" fill className="object-cover opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent hidden md:block"></div>
                 </div>
               </div>
+            )}
 
-              {/* Timeline Item 3 */}
-              <div className="relative pl-10 md:pl-16">
-                <div className="absolute w-6 h-6 bg-gray-800 rounded-full -left-[15px] top-1 border-4 border-white shadow-sm"></div>
-                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                  <span className="text-gray-800 font-bold text-sm mb-2 block">Phase 03. 임플란트 & 평생 유지 관리</span>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">치료의 마침표, 그리고 새로운 시작</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    결손된 치아는 디지털 가이드 임플란트로 완벽하게 복원하며, 모든 치료가 끝난 후에도 교정 유지 장치 체크와 보철물 사후 관리를 원장 1인이 책임지고 평생 관리합니다.
+            {/* Tab 2: 한스 스마일 */}
+            {activeTab === 'smile' && (
+              <div className="animate-fade-in-up bg-white rounded-3xl overflow-hidden shadow-xl border border-[#f4ecd8] flex flex-col md:flex-row-reverse">
+                <div className="w-full md:w-1/2 p-12 lg:p-16 flex flex-col justify-center bg-[#faf8f5]">
+                  <span className="text-[#c6a87c] font-bold tracking-widest text-sm mb-4">AESTHETIC MASTERPLAN</span>
+                  <h3 className="text-3xl font-extrabold text-gray-900 mb-6 leading-snug">당신에게 가장 잘 어울리는 핏(Fit), <br/> 밝은 미소의 알고리즘.</h3>
+                  <p className="text-gray-600 mb-8 leading-relaxed">
+                    단순한 치아 성형이 아닙니다. 치아의 색상, 형태, 배열을 유기적으로 고려하여 가장 자연스럽고 눈부신 미소를 완성하는 4단계 스텝 바이 스텝(Step-by-step) 마스터플랜입니다.
                   </p>
+                  <div className="space-y-6">
+                    <div className="flex gap-4 items-start">
+                      <div className="w-8 h-8 rounded-full bg-[#c6a87c] text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+                      <div><h4 className="font-bold text-gray-900">에어플로우</h4><p className="text-sm text-gray-500">착색 및 플라그 제거로 깨끗한 바탕 만들기</p></div>
+                    </div>
+                    <div className="flex gap-4 items-start">
+                      <div className="w-8 h-8 rounded-full bg-[#c6a87c] text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+                      <div><h4 className="font-bold text-gray-900">투명 교정</h4><p className="text-sm text-gray-500">치아의 불필요한 삭제를 막기 위한 바른 배열 확보</p></div>
+                    </div>
+                    <div className="flex gap-4 items-start">
+                      <div className="w-8 h-8 rounded-full bg-[#c6a87c] text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+                      <div><h4 className="font-bold text-gray-900">라미네이트</h4><p className="text-sm text-gray-500">비율과 황금비에 맞춘 정교한 심미 보철 완성</p></div>
+                    </div>
+                    <div className="flex gap-4 items-start">
+                      <div className="w-8 h-8 rounded-full bg-[#c6a87c] text-white flex items-center justify-center font-bold flex-shrink-0">4</div>
+                      <div><h4 className="font-bold text-gray-900">전문가 미백</h4><p className="text-sm text-gray-500">전체적인 톤업으로 눈부신 스마일 라인 마무리</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full md:w-1/2 relative min-h-[300px]">
+                  <Image src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=800&q=80" alt="밝은 미소 심미치료" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-l from-[#faf8f5] via-transparent to-transparent hidden md:block"></div>
                 </div>
               </div>
-            </div>
+            )}
+
+            {/* Tab 3: 한스 디지털 셋업 */}
+            {activeTab === 'digital' && (
+              <div className="animate-fade-in-up bg-[#111827] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+                <div className="w-full md:w-1/2 p-12 lg:p-16 flex flex-col justify-center text-white">
+                  <span className="text-blue-400 font-mono tracking-widest text-sm mb-4">{`// HIGH-TECH PROTOCOL`}</span>
+                  <h3 className="text-3xl font-extrabold mb-6 leading-snug">0.01mm의 오차도 허용하지 않는 <br/> 공학적 진단과 설계.</h3>
+                  <p className="text-gray-400 mb-8 leading-relaxed">
+                    사람의 손기술에만 의존하지 않고, 정확한 3D 데이터와 공학적 알고리즘을 결합하여 최선의 결과를 도출합니다. 가장 안전하고 예측 가능한 진료를 약속합니다.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="bg-white/5 p-5 rounded-xl border border-white/10">
+                      <h4 className="font-bold text-blue-300 mb-2">3D 구강 스캐너</h4>
+                      <p className="text-xs text-gray-400">섬세한 검진과 변형 없는 정밀한 구강 데이터 채득</p>
+                    </div>
+                    <div className="bg-white/5 p-5 rounded-xl border border-white/10">
+                      <h4 className="font-bold text-blue-300 mb-2">임플란트 가이드</h4>
+                      <p className="text-xs text-gray-400">3D 프린터를 활용하여 신경관을 피하는 정확한 위치 식립</p>
+                    </div>
+                    <div className="bg-white/5 p-5 rounded-xl border border-white/10 sm:col-span-2">
+                      <h4 className="font-bold text-blue-300 mb-2">디지털 투명 교정</h4>
+                      <p className="text-xs text-gray-400">데이터 시뮬레이션을 통한 정확한 치아 이동과 위치 회복 설계</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full md:w-1/2 relative min-h-[300px]">
+                  <Image src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="디지털 덴티스트리" fill className="object-cover opacity-60 grayscale" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#111827] via-[#111827]/50 to-transparent"></div>
+                </div>
+              </div>
+            )}
+            
           </div>
         </div>
       </section>
 
-      {/* 7. Hans Film */}
-      <section id="hans-film" className="py-32 bg-[#1a1a1a] text-white relative overflow-hidden border-t border-gray-800">
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20">
-          <img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?auto=format&fit=crop&w=1000&q=80" alt="Film Background" className="w-full h-full object-cover" />
-        </div>
-        <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <p className="text-gray-400 font-bold tracking-[0.2em] mb-4 text-sm">HANS FILM BY SEOUL HANS</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-10 leading-tight">서울한스치과의 <br/> 무삭제 라미네이트</h2>
-          <div className="space-y-6 text-lg text-gray-300 font-light">
-            <p><strong className="text-white font-bold">POINT 01.</strong> 개개인의 황금비에 맞추어 100% 수작업되는 "한스필름"</p>
-            <p><strong className="text-white font-bold">POINT 02.</strong> 소중한 자연치 보존을 위해 0.1mm Film 두께로 구현한 기술력</p>
-            <p><strong className="text-white font-bold">POINT 03.</strong> 불필요한 치아삭제를 방지하기 위한 선교정 후 한스필름 진행</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. 증례별 전후사진 슬라이더 */}
+      {/* 6. 증례별 전후사진 슬라이더 */}
       <CasesSlider />
 
-      {/* 9. Live Blog Feed */}
+      {/* 7. Live Blog Feed */}
       <section id="blog" className="py-24 bg-gray-50 border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-end mb-10">
@@ -350,12 +390,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10. 카카오맵 컴포넌트 호출 */}
+      {/* 8. 카카오맵 컴포넌트 호출 */}
       <div id="location">
         <KakaoMap />
       </div>
 
-      {/* 11. Footer */}
+      {/* 9. Footer */}
       <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between border-b border-gray-300 pb-10 mb-8 gap-8">
