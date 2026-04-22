@@ -13,10 +13,16 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="bg-white min-h-screen font-sans text-gray-900 scroll-smooth relative">
+    {/* 프리텐다드 폰트 적용 (인라인 스타일 활용하여 강제 적용) */}
+    <div 
+      className="bg-white min-h-screen text-gray-900 scroll-smooth relative"
+      style={{ fontFamily: "'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif" }}
+    >
       <Head>
         <title>서울한스치과 - 설계하고 진료하는 공학도 출신 치과의사</title>
         <meta name="description" content="대구 동구 동부로에 위치한 서울한스치과입니다. 서울대 전기공학부 출신 대표원장의 공학적 정밀 진료." />
+        {/* 프리텐다드 폰트 CDN 로드 */}
+        <link rel="stylesheet" as="style" crossOrigin="true" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
       </Head>
 
       {/* 화면 하단 고정 예약 버튼 (플로팅) */}
@@ -34,10 +40,10 @@ export default function Home() {
         </a>
       </div>
 
-      {/* 1. Header (확장 및 모바일 메뉴 추가) */}
+      {/* 1. Header */}
       <header className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-[110] transition-all">
         <div className="w-full px-6 md:px-12 py-6 flex justify-between items-center">
-          {/* 로고 영역 (크기 확대) */}
+          {/* 로고 영역 */}
           <div className="text-3xl md:text-4xl font-black tracking-tighter text-blue-900">
             서울한스치과의원
           </div>
@@ -203,7 +209,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Philosophy Section (공학적 통찰 & 디지털 토탈 케어) */}
+      {/* 4. Philosophy Section */}
       <section id="philosophy" className="py-32 bg-[#0f172a] text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
