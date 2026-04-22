@@ -86,10 +86,12 @@ export default function Home() {
                 </span>
               </h1>
 
+              {/* Subtitle 텍스트 수정 반영 */}
               <p className="text-base md:text-xl text-gray-800 leading-relaxed font-medium mx-auto max-w-2xl">
-                분업화된 치과 시스템 속에서 길을 잃지 마세요. <br className="hidden md:block" />
-                체계적인 진단부터, 교정과 수술까지, 당신의 모든 데이터를 가장 잘 아는 원장이 곁을 지킵니다. <br className="hidden md:block" />
-                서울한스치과에는 <span className="font-bold text-blue-900">'중간에 바뀌는 의사'</span>가 없습니다.
+                분업화된 치과 시스템 속에서 낯설고 불안한 순간을 줄여드립니다.<br className="hidden md:block" />
+                체계적인 진단부터 교정, 고난이도 수술까지<br className="hidden md:block" />
+                당신의 상태를 가장 잘 아는 주치의가 끝까지 함께하며 세심하게 관리합니다.<br className="hidden md:block" />
+                서울한스치과는 <span className="font-bold text-blue-900">진료 중간에 담당 의사가 바뀌지 않습니다.</span>
               </p>
             </div>
           </div>
@@ -155,15 +157,15 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 원장 메시지 */}
+              {/* 원장 메시지 텍스트 수정 반영 */}
               <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 relative">
                 <div className="absolute top-0 right-0 -mt-3 -mr-3 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-serif text-2xl">"</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">왜 홈페이지를 직접 코딩하냐고요?</h3>
                 <p className="text-gray-600 leading-relaxed text-[15px]">
-                  마케팅 업체의 정형화된 글로는 제 진료 철학을 온전히 담을 수 없었습니다. 
-                  그래서 Next.js 프레임워크를 활용해 이 공간을 한 줄 한 줄 직접 설계했습니다. <br/><br/>
-                  전기공학도로서 익힌 '시스템적 사고'와 오차를 허용하지 않는 '완벽주의'. 
-                  홈페이지 코드를 짜는 이 집요함과 꼼꼼함 그대로, 환자분의 입안을 책임지고 진료합니다.
+                  정형화된 마케팅 문구로는 저의 진료철학과 마음을 온전히 담기 어렵다고 느꼈습니다.<br/><br/>
+                  그래서 이 공간만큼은 환자분들께 더 솔직하고, 더 정확하게 전달하고 싶어 한 줄 한 줄 직접 설계하고 만들었습니다.<br/><br/>
+                  보이지 않는 작은 부분까지 꼼꼼히 챙기는 마음, 그대로 진료에도 담고 있습니다.<br/>
+                  홈페이지를 만드는 방식처럼 환자 한 분, 한 분의 치료 역시 처음부터 끝까지 책임지고 함께하겠습니다.
                 </p>
               </div>
             </div>
@@ -173,7 +175,6 @@ export default function Home() {
 
       {/* 4. Philosophy Section (공학적 통찰 & 디지털 토탈 케어) */}
       <section id="philosophy" className="py-32 bg-[#0f172a] text-white relative overflow-hidden">
-        {/* 디지털 라인 배경 그래픽 */}
         <div className="absolute inset-0 z-0 opacity-20">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="#3b82f6" strokeWidth="0.2" />
@@ -233,7 +234,6 @@ export default function Home() {
             <p className="text-gray-600">환자분의 고민에 가장 완벽한 해답을 제시하는 세 가지 특화 프로토콜</p>
           </div>
 
-          {/* 탭 버튼 영역 - 크기 확대 및 갭 증대 */}
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-16">
             <button 
               onClick={() => setActiveTab('pain-free')}
@@ -255,7 +255,6 @@ export default function Home() {
             </button>
           </div>
 
-          {/* 탭 콘텐츠 영역 */}
           <div className="relative min-h-[500px]">
             
             {/* Tab 1: 한스 무통증 케어 */}
@@ -315,27 +314,28 @@ export default function Home() {
               </div>
             )}
 
-            {/* Tab 3: 한스 디지털 셋업 */}
+            {/* Tab 3: 한스 디지털 셋업 (텍스트 수정 반영) */}
             {activeTab === 'digital' && (
               <div className="animate-fade-in-up bg-[#111827] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
                 <div className="w-full md:w-1/2 p-12 lg:p-16 flex flex-col justify-center text-white">
                   <span className="text-blue-400 font-mono tracking-widest text-sm mb-4">{`// HIGH-TECH PROTOCOL`}</span>
-                  <h3 className="text-3xl font-extrabold mb-6 leading-snug">0.01mm의 오차도 허용하지 않는 <br/> 공학적 진단과 설계.</h3>
-                  <p className="text-gray-400 mb-8 leading-relaxed">
-                    사람의 손기술에만 의존하지 않고, 정확한 3D 데이터와 공학적 알고리즘을 결합하여 최선의 결과를 도출합니다. 가장 안전하고 예측 가능한 진료를 약속합니다.
-                  </p>
+                  <h3 className="text-3xl font-extrabold mb-6 leading-snug">0.01mm의 오차까지 고려하는 <br/> 정밀한 진단과 설계.</h3>
+                  <div className="text-gray-400 mb-8 leading-relaxed space-y-4">
+                    <p>사람의 감각에만 의존하지 않고, 정확한 3D 데이터와 공학적 분석을 기반으로 보다 예측 가능하고 안정적인 결과를 설계합니다.</p>
+                    <p>정밀함은 결국 환자분의 편안함과 안전을 위한 것이라고 생각합니다.<br/>그래서 보이지 않는 과정까지 세심하게 고민하며 진료합니다.</p>
+                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="bg-white/5 p-5 rounded-xl border border-white/10">
                       <h4 className="font-bold text-blue-300 mb-2">3D 구강 스캐너</h4>
-                      <p className="text-xs text-gray-400">섬세한 검진과 변형 없는 정밀한 구강 데이터 채득</p>
+                      <p className="text-xs text-gray-400 leading-relaxed">불편함을 최소화하면서 정밀한 구강 데이터를 빠르게 확보합니다.</p>
                     </div>
                     <div className="bg-white/5 p-5 rounded-xl border border-white/10">
                       <h4 className="font-bold text-blue-300 mb-2">임플란트 가이드</h4>
-                      <p className="text-xs text-gray-400">3D 프린터를 활용하여 신경관을 피하는 정확한 위치 식립</p>
+                      <p className="text-xs text-gray-400 leading-relaxed">신경과 구조를 고려한 설계를 통해 보다 안전하고 정확한 위치에 식립합니다.</p>
                     </div>
                     <div className="bg-white/5 p-5 rounded-xl border border-white/10 sm:col-span-2">
                       <h4 className="font-bold text-blue-300 mb-2">디지털 투명 교정</h4>
-                      <p className="text-xs text-gray-400">데이터 시뮬레이션을 통한 정확한 치아 이동과 위치 회복 설계</p>
+                      <p className="text-xs text-gray-400 leading-relaxed">개인별 데이터를 기반으로 자연스럽고 안정적인 치아 이동을 설계합니다.</p>
                     </div>
                   </div>
                 </div>
@@ -398,12 +398,12 @@ export default function Home() {
       </section>
 
       {/* 8. 카카오맵 컴포넌트 호출 */}
-      <div id="location" className="pb-20"> {/* 플로팅 버튼 여백 확보 */}
+      <div id="location" className="pb-20">
         <KakaoMap />
       </div>
 
       {/* 9. Footer */}
-      <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200 pb-32"> {/* 플로팅 버튼 영역 확보 위해 하단 패딩 증가 */}
+      <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200 pb-32">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between border-b border-gray-300 pb-10 mb-8 gap-8">
             <div className="space-y-2">
