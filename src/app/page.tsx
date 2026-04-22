@@ -79,14 +79,15 @@ export default function Home() {
 
           <div className="relative w-full flex justify-center items-center">
             <div className="w-full max-w-4xl text-center text-gray-900 relative z-10">
+              {/* 메인 Title 텍스트 수정 반영 */}
               <h1 className="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-[1.3] tracking-tight">
-                당신의 주치의는 <span className="text-blue-900">바뀌지 않습니다.</span><br/>
+                바뀌지 않는 주치의, <br className="md:hidden" />
+                <span className="text-blue-900">변하지 않는 책임감</span>으로 함께 합니다.<br/>
                 <span className="text-2xl md:text-3xl font-bold text-gray-700 mt-4 block leading-snug">
                   진료의 시작부터 끝까지, <br className="md:hidden" />책임의 무게를 아는 단 한 명의 원장.
                 </span>
               </h1>
 
-              {/* Subtitle 텍스트 수정 반영 */}
               <p className="text-base md:text-xl text-gray-800 leading-relaxed font-medium mx-auto max-w-2xl">
                 분업화된 치과 시스템 속에서 낯설고 불안한 순간을 줄여드립니다.<br className="hidden md:block" />
                 체계적인 진단부터 교정, 고난이도 수술까지<br className="hidden md:block" />
@@ -157,7 +158,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 원장 메시지 텍스트 수정 반영 */}
+              {/* 원장 메시지 */}
               <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 relative">
                 <div className="absolute top-0 right-0 -mt-3 -mr-3 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-serif text-2xl">"</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">왜 홈페이지를 직접 코딩하냐고요?</h3>
@@ -314,7 +315,7 @@ export default function Home() {
               </div>
             )}
 
-            {/* Tab 3: 한스 디지털 셋업 (텍스트 수정 반영) */}
+            {/* Tab 3: 한스 디지털 셋업 */}
             {activeTab === 'digital' && (
               <div className="animate-fade-in-up bg-[#111827] rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
                 <div className="w-full md:w-1/2 p-12 lg:p-16 flex flex-col justify-center text-white">
