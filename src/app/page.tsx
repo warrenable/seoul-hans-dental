@@ -9,6 +9,8 @@ import KakaoMap from '@/components/KakaoMap';
 export default function Home() {
   // 한스 시그니처 탭 관리를 위한 State
   const [activeTab, setActiveTab] = useState('pain-free');
+  // 모바일 햄버거 메뉴 관리를 위한 State
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div className="bg-white min-h-screen font-sans text-gray-900 scroll-smooth relative">
@@ -32,20 +34,48 @@ export default function Home() {
         </a>
       </div>
 
-      {/* 1. Header */}
-      <header className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 transition-all">
-        <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
-          <div className="text-2xl font-black tracking-tighter text-blue-900">
+      {/* 1. Header (확장 및 모바일 메뉴 추가) */}
+      <header className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-[110] transition-all">
+        <div className="w-full px-6 md:px-12 py-6 flex justify-between items-center">
+          {/* 로고 영역 (크기 확대) */}
+          <div className="text-3xl md:text-4xl font-black tracking-tighter text-blue-900">
             서울한스치과의원
           </div>
-          <nav className="hidden lg:flex space-x-8 text-[15px] font-semibold text-gray-700">
+          
+          {/* 데스크탑 네비게이션 */}
+          <nav className="hidden lg:flex space-x-10 text-[16px] font-semibold text-gray-700">
             <a href="#staff" className="hover:text-blue-900 transition-colors">원장 소개</a>
             <a href="#philosophy" className="hover:text-blue-900 transition-colors">진료 철학</a>
             <a href="#signature" className="hover:text-blue-900 transition-colors">한스 시그니처</a>
             <a href="#blog" className="hover:text-blue-900 transition-colors">진료 일기</a>
             <a href="#location" className="hover:text-blue-900 transition-colors">오시는 길</a>
           </nav>
+
+          {/* 모바일 햄버거 메뉴 버튼 */}
+          <button 
+            className="lg:hidden p-2 text-gray-600 hover:text-blue-900 focus:outline-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+            )}
+          </button>
         </div>
+
+        {/* 모바일 드롭다운 메뉴 */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl">
+            <nav className="flex flex-col px-6 py-4 space-y-2 text-[17px] font-bold text-gray-800">
+              <a href="#staff" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 border-b border-gray-50 hover:text-blue-900">원장 소개</a>
+              <a href="#philosophy" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 border-b border-gray-50 hover:text-blue-900">진료 철학</a>
+              <a href="#signature" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 border-b border-gray-50 hover:text-blue-900">한스 시그니처</a>
+              <a href="#blog" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 border-b border-gray-50 hover:text-blue-900">진료 일기</a>
+              <a href="#location" onClick={() => setIsMobileMenuOpen(false)} className="block py-3 hover:text-blue-900">오시는 길</a>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* 2. Hero Section */}
@@ -79,7 +109,6 @@ export default function Home() {
 
           <div className="relative w-full flex justify-center items-center">
             <div className="w-full max-w-4xl text-center text-gray-900 relative z-10">
-              {/* 메인 Title 텍스트 수정 반영 */}
               <h1 className="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-[1.3] tracking-tight">
                 바뀌지 않는 주치의, <br className="md:hidden" />
                 <span className="text-blue-900">변하지 않는 책임감</span>으로 함께 합니다.<br/>
