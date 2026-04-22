@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import CasesSlider from '@/components/CasesSlider';
 import KakaoMap from '@/components/KakaoMap';
@@ -14,6 +15,11 @@ export default function Home() {
       className="bg-white min-h-screen text-gray-900 scroll-smooth relative"
       style={{ fontFamily: "'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif" }}
     >
+      <Head>
+        <title>서울한스치과 - 설계하고 진료하는 공학도 출신 치과의사</title>
+        <meta name="description" content="대구 동구 동부로에 위치한 서울한스치과입니다. 서울대 전기공학부 출신 대표원장의 공학적 정밀 진료." />
+      </Head>
+
       {/* 화면 하단 고정 예약 버튼 (플로팅) */}
       <div className="fixed bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-[100] w-[90%] max-w-[400px] flex justify-center">
         <a 
@@ -32,10 +38,20 @@ export default function Home() {
       {/* 1. Header */}
       <header className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-[110] transition-all">
         <div className="w-full px-6 md:px-12 py-6 flex justify-between items-center">
-          <div className="text-3xl md:text-4xl font-black tracking-tighter text-blue-900">
-            서울한스치과의원
+          
+          {/* 좌측: 로고 및 보건복지부 인증 배지 */}
+          <div className="flex items-center gap-4 md:gap-6">
+            <div className="text-3xl md:text-4xl font-black tracking-tighter text-blue-900">
+              서울한스치과의원
+            </div>
+            {/* 보건복지부 배지 (태블릿 이상 화면에서 표시) */}
+            <div className="hidden lg:flex items-center gap-2 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">
+              <img src="/gov-logo.png" alt="보건복지부 마크" className="w-5 h-5 object-contain" />
+              <span className="text-[13px] font-bold text-blue-900 tracking-tight">보건복지부 인증 전문의</span>
+            </div>
           </div>
           
+          {/* 데스크탑 네비게이션 */}
           <nav className="hidden lg:flex space-x-10 text-[16px] font-semibold text-gray-700">
             <a href="#staff" className="hover:text-blue-900 transition-colors">원장 소개</a>
             <a href="#philosophy" className="hover:text-blue-900 transition-colors">진료 철학</a>
@@ -44,6 +60,7 @@ export default function Home() {
             <a href="#location" className="hover:text-blue-900 transition-colors">오시는 길</a>
           </nav>
 
+          {/* 모바일 햄버거 메뉴 버튼 */}
           <button 
             className="lg:hidden p-2 text-gray-600 hover:text-blue-900 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -56,6 +73,7 @@ export default function Home() {
           </button>
         </div>
 
+        {/* 모바일 드롭다운 메뉴 */}
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl">
             <nav className="flex flex-col px-6 py-4 space-y-2 text-[17px] font-bold text-gray-800">
@@ -99,18 +117,19 @@ export default function Home() {
 
           <div className="relative w-full flex justify-center items-center">
             <div className="w-full max-w-4xl text-center text-gray-900 relative z-10">
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-[1.3] tracking-tight">
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-[1.3] tracking-tight break-keep">
                 바뀌지 않는 주치의, <br className="md:hidden" />
                 <span className="text-blue-900">변하지 않는 책임감</span>으로 함께 합니다.<br/>
-                <span className="text-2xl md:text-3xl font-bold text-gray-700 mt-4 block leading-snug">
+                <span className="text-2xl md:text-3xl font-bold text-gray-700 mt-5 block leading-snug">
                   진료의 시작부터 끝까지, <br className="md:hidden" />책임의 무게를 아는 단 한 명의 원장.
                 </span>
               </h1>
 
-              <p className="text-base md:text-xl text-gray-800 leading-relaxed font-medium mx-auto max-w-2xl">
-                분업화된 치과 시스템 속에서 낯설고 불안한 순간을 줄여드립니다.<br className="hidden md:block" />
+              {/* break-keep 추가 및 br 태그 최적화 */}
+              <p className="text-base md:text-xl text-gray-800 leading-relaxed font-medium mx-auto max-w-2xl break-keep">
+                분업화된 치과 시스템 속에서 낯설고 불안한 순간을 줄여드립니다.<br />
                 체계적인 진단부터 교정, 고난이도 수술까지<br className="hidden md:block" />
-                당신의 상태를 가장 잘 아는 주치의가 끝까지 함께하며 세심하게 관리합니다.<br className="hidden md:block" />
+                당신의 상태를 가장 잘 아는 주치의가 끝까지 함께하며 세심하게 관리합니다.<br />
                 서울한스치과는 <span className="font-bold text-blue-900">진료 중간에 담당 의사가 바뀌지 않습니다.</span>
               </p>
             </div>
@@ -172,7 +191,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 relative">
+              <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 relative break-keep">
                 <div className="absolute top-0 right-0 -mt-3 -mr-3 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-serif text-2xl">&quot;</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">왜 홈페이지를 직접 코딩하냐고요?</h3>
                 <p className="text-gray-600 leading-relaxed text-[15px]">
@@ -188,7 +207,7 @@ export default function Home() {
       </section>
 
       {/* 4. Philosophy Section */}
-      <section id="philosophy" className="py-32 bg-[#0f172a] text-white relative overflow-hidden">
+      <section id="philosophy" className="py-32 bg-[#0f172a] text-white relative overflow-hidden break-keep">
         <div className="absolute inset-0 z-0 opacity-20">
           <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="#3b82f6" strokeWidth="0.2" />
@@ -240,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* 5. Hans Signature Series (Tab UI) */}
-      <section id="signature" className="py-32 bg-gray-50">
+      <section id="signature" className="py-32 bg-gray-50 break-keep">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <p className="text-blue-900 font-bold tracking-[0.2em] text-sm mb-4">HANS SIGNATURE CARE</p>
@@ -367,7 +386,7 @@ export default function Home() {
       <CasesSlider />
 
       {/* 7. Live Blog Feed */}
-      <section id="blog" className="py-24 bg-gray-50 border-t border-gray-200">
+      <section id="blog" className="py-24 bg-gray-50 border-t border-gray-200 break-keep">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-end mb-10">
             <div>
@@ -416,7 +435,7 @@ export default function Home() {
       </div>
 
       {/* 9. Footer */}
-      <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200 pb-32">
+      <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200 pb-32 break-keep">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between border-b border-gray-300 pb-10 mb-8 gap-8">
             <div className="space-y-2">
