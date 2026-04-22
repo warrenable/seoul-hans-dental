@@ -1,30 +1,19 @@
 'use client';
 
 import React, { useState } from 'react';
-import Head from 'next/head';
 import Image from 'next/image';
 import CasesSlider from '@/components/CasesSlider';
 import KakaoMap from '@/components/KakaoMap';
 
 export default function Home() {
-  // 한스 시그니처 탭 관리를 위한 State
   const [activeTab, setActiveTab] = useState('pain-free');
-  // 모바일 햄버거 메뉴 관리를 위한 State
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    {/* 프리텐다드 폰트 적용 (인라인 스타일 활용하여 강제 적용) */}
     <div 
       className="bg-white min-h-screen text-gray-900 scroll-smooth relative"
       style={{ fontFamily: "'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif" }}
     >
-      <Head>
-        <title>서울한스치과 - 설계하고 진료하는 공학도 출신 치과의사</title>
-        <meta name="description" content="대구 동구 동부로에 위치한 서울한스치과입니다. 서울대 전기공학부 출신 대표원장의 공학적 정밀 진료." />
-        {/* 프리텐다드 폰트 CDN 로드 */}
-        <link rel="stylesheet" as="style" crossOrigin="true" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-      </Head>
-
       {/* 화면 하단 고정 예약 버튼 (플로팅) */}
       <div className="fixed bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 z-[100] w-[90%] max-w-[400px] flex justify-center">
         <a 
@@ -43,12 +32,10 @@ export default function Home() {
       {/* 1. Header */}
       <header className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-[110] transition-all">
         <div className="w-full px-6 md:px-12 py-6 flex justify-between items-center">
-          {/* 로고 영역 */}
           <div className="text-3xl md:text-4xl font-black tracking-tighter text-blue-900">
             서울한스치과의원
           </div>
           
-          {/* 데스크탑 네비게이션 */}
           <nav className="hidden lg:flex space-x-10 text-[16px] font-semibold text-gray-700">
             <a href="#staff" className="hover:text-blue-900 transition-colors">원장 소개</a>
             <a href="#philosophy" className="hover:text-blue-900 transition-colors">진료 철학</a>
@@ -57,7 +44,6 @@ export default function Home() {
             <a href="#location" className="hover:text-blue-900 transition-colors">오시는 길</a>
           </nav>
 
-          {/* 모바일 햄버거 메뉴 버튼 */}
           <button 
             className="lg:hidden p-2 text-gray-600 hover:text-blue-900 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -70,7 +56,6 @@ export default function Home() {
           </button>
         </div>
 
-        {/* 모바일 드롭다운 메뉴 */}
         {isMobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl">
             <nav className="flex flex-col px-6 py-4 space-y-2 text-[17px] font-bold text-gray-800">
@@ -97,7 +82,6 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex flex-col justify-center mt-12 pb-16">
-          {/* 전문가 배지 섹션 */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-12 animate-fade-in-up w-full">
             <span className="px-3 py-1 md:px-4 md:py-1.5 bg-blue-50 rounded-full text-xs md:text-sm font-bold border border-blue-100 text-blue-900 shadow-sm whitespace-nowrap">
               서울대학교 전기공학부 졸업
@@ -138,21 +122,18 @@ export default function Home() {
       <section id="staff" className="py-24 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
-            {/* 좌측: 원장님 프로필 이미지 */}
             <div className="w-full lg:w-1/2 lg:sticky lg:top-32">
               <div className="rounded-3xl overflow-hidden shadow-lg bg-gray-200 relative aspect-[3/4]">
                 <img src="/doctor.jpg" alt="대표원장 주호성" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               </div>
             </div>
             
-            {/* 우측: 상세 약력 */}
             <div className="w-full lg:w-1/2 space-y-10">
               <div>
                 <p className="text-blue-900 font-bold tracking-[0.2em] text-sm mb-2">REPRESENTATIVE DIRECTOR</p>
                 <h2 className="text-4xl font-extrabold text-gray-900 mb-8">대표원장 주호성</h2>
                 
                 <div className="space-y-8">
-                  {/* 학력 및 이력 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학력 및 주요 이력
@@ -167,7 +148,6 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  {/* 학회 활동 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학회 활동
@@ -179,7 +159,6 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  {/* 인증 및 자문 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 인증 및 연구 자문
@@ -193,9 +172,8 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 원장 메시지 */}
               <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 relative">
-                <div className="absolute top-0 right-0 -mt-3 -mr-3 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-serif text-2xl">"</div>
+                <div className="absolute top-0 right-0 -mt-3 -mr-3 w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center font-serif text-2xl">&quot;</div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">왜 홈페이지를 직접 코딩하냐고요?</h3>
                 <p className="text-gray-600 leading-relaxed text-[15px]">
                   정형화된 마케팅 문구로는 저의 진료철학과 마음을 온전히 담기 어렵다고 느꼈습니다.<br/><br/>
@@ -292,7 +270,6 @@ export default function Home() {
           </div>
 
           <div className="relative min-h-[500px]">
-            
             {/* Tab 1: 한스 무통증 케어 */}
             {activeTab === 'pain-free' && (
               <div className="animate-fade-in-up bg-white rounded-3xl overflow-hidden shadow-xl border border-teal-50 flex flex-col md:flex-row">
