@@ -485,8 +485,8 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 지하철 이미지 (텍스트 하단 배치) */}
-              <div className="relative w-full h-[200px] rounded-2xl overflow-hidden shadow-sm mt-8">
+              {/* 지하철 이미지 (기존 너비를 w-1/2로 줄이고 높이도 적절히 조절) */}
+              <div className="relative w-1/2 h-[120px] rounded-2xl overflow-hidden shadow-sm mt-8">
                 <Image 
                   src="/subway.webp" 
                   alt="동대구역 전경" 
@@ -511,11 +511,16 @@ export default function Home() {
             </div>
             <div className="md:text-right space-y-2">
               <h3 className="font-bold text-gray-800 mb-6 text-lg">진료시간</h3>
-              <p>월, 수, 금 : AM 09:30 ~ PM 06:30 (점심시간 PM 01:00-PM 02:00)</p>
-              <p>화요일 (야간진료) : AM 09:30 ~ PM 08:30</p>
-              <p>토요일 : AM 09:30 ~ PM 02:00 (점심시간 없음)</p>
-              <p className="text-red-500 font-bold mt-2">※ 목요일, 일요일 및 공휴일 휴진</p>
-              <p className="text-xs mt-1">(대학원 수업으로 인한 목요일 휴진을 안내합니다)</p>
+              <p>월, 화, 수, 금 : AM 10:00 ~ PM 05:00</p>
+              {/* 주말 진료 시간 강조 영역 */}
+              <div className="inline-block bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-md mt-1 mb-2">
+                <p className="text-blue-900 font-extrabold text-[15px]">
+                  ✓ 토, 일 (주말진료) : AM 10:00 ~ PM 04:00
+                </p>
+              </div>
+              <p>점심시간 : PM 01:00 ~ PM 02:00</p>
+              <p className="text-red-500 font-bold mt-2">※ 목요일 휴진</p>
+              <p className="text-xs mt-1 text-gray-400">(교정학 대학원 수업으로 인해 목요일은 휴진합니다)</p>
             </div>
           </div>
           
