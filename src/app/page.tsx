@@ -125,7 +125,6 @@ export default function Home() {
                 </span>
               </h1>
 
-              {/* break-keep 추가 및 br 태그 최적화 */}
               <p className="text-base md:text-xl text-gray-800 leading-relaxed font-medium mx-auto max-w-2xl break-keep">
                 분업화된 치과 시스템 속에서 낯설고 불안한 순간을 줄여드립니다.<br />
                 체계적인 진단부터 교정, 고난이도 수술까지<br className="hidden md:block" />
@@ -141,18 +140,27 @@ export default function Home() {
       <section id="staff" className="py-24 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
+            {/* 좌측: 원장님 프로필 이미지 (next/image 컴포넌트로 WebP 적용) */}
             <div className="w-full lg:w-1/2 lg:sticky lg:top-32">
               <div className="rounded-3xl overflow-hidden shadow-lg bg-gray-200 relative aspect-[3/4]">
-                <img src="/doctor.jpg" alt="대표원장 주호성" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                <Image 
+                  src="/doctor.webp" 
+                  alt="대표원장 주호성" 
+                  fill 
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+                />
               </div>
             </div>
             
+            {/* 우측: 상세 약력 */}
             <div className="w-full lg:w-1/2 space-y-10">
               <div>
                 <p className="text-blue-900 font-bold tracking-[0.2em] text-sm mb-2">REPRESENTATIVE DIRECTOR</p>
                 <h2 className="text-4xl font-extrabold text-gray-900 mb-8">대표원장 주호성</h2>
                 
                 <div className="space-y-8">
+                  {/* 학력 및 이력 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학력 및 주요 이력
@@ -167,6 +175,7 @@ export default function Home() {
                     </ul>
                   </div>
 
+                  {/* 학회 활동 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학회 활동
@@ -178,6 +187,7 @@ export default function Home() {
                     </ul>
                   </div>
 
+                  {/* 인증 및 자문 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 인증 및 연구 자문
