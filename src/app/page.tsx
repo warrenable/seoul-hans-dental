@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import CasesSlider from '@/components/CasesSlider';
-import KakaoMap from '@/components/KakaoMap';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('pain-free');
@@ -140,7 +139,6 @@ export default function Home() {
       <section id="staff" className="py-24 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
-            {/* 좌측: 원장님 프로필 이미지 (next/image 컴포넌트로 WebP 적용) */}
             <div className="w-full lg:w-1/2 lg:sticky lg:top-32">
               <div className="rounded-3xl overflow-hidden shadow-lg bg-gray-200 relative aspect-[3/4]">
                 <Image 
@@ -153,14 +151,12 @@ export default function Home() {
               </div>
             </div>
             
-            {/* 우측: 상세 약력 */}
             <div className="w-full lg:w-1/2 space-y-10">
               <div>
                 <p className="text-blue-900 font-bold tracking-[0.2em] text-sm mb-2">REPRESENTATIVE DIRECTOR</p>
                 <h2 className="text-4xl font-extrabold text-gray-900 mb-8">대표원장 주호성</h2>
                 
                 <div className="space-y-8">
-                  {/* 학력 및 이력 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학력 및 주요 이력
@@ -175,7 +171,6 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  {/* 학회 활동 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 학회 활동
@@ -187,7 +182,6 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  {/* 인증 및 자문 */}
                   <div>
                     <h3 className="text-blue-900 font-bold text-lg mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-blue-900 rounded-full"></span> 인증 및 연구 자문
@@ -439,10 +433,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. 카카오맵 컴포넌트 호출 */}
-      <div id="location" className="pb-20">
-        <KakaoMap />
-      </div>
+      {/* 8. 오시는 길 (카카오맵 대체 정적 레이아웃) */}
+      <section id="location" className="py-24 bg-white border-t border-gray-200 break-keep">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* 좌측: 지도 이미지 (네이버 지도 링크) */}
+            <div className="w-full">
+              <a 
+                href="https://naver.me/GpCzMuWN" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block relative w-full h-[400px] rounded-3xl overflow-hidden shadow-lg border border-gray-100 group"
+              >
+                <Image 
+                  src="/map-capture.webp" 
+                  alt="서울한스치과 오시는 길 지도" 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
+                
+                {/* 지도 클릭 유도 버튼 */}
+                <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm px-5 py-2.5 rounded-full font-bold text-sm text-blue-900 shadow-md flex items-center gap-2 group-hover:bg-blue-900 group-hover:text-white transition-colors">
+                  네이버 지도로 보기
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                </div>
+              </a>
+            </div>
+
+            {/* 우측: 상세 텍스트 및 지하철 이미지 */}
+            <div className="flex flex-col h-full justify-between space-y-8">
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">오시는 길</h2>
+                <p className="text-gray-500 font-medium">대구광역시 동구 동부로 30길 12, 3층 (스타벅스 건물)</p>
+                
+                <div className="mt-8 space-y-5 text-[16px] text-gray-700">
+                  <div className="flex items-start gap-4">
+                    <span className="font-bold text-blue-900 min-w-[80px] shrink-0">지하철 이용</span>
+                    <p className="font-medium">1호선 동대구역 2번출구 하차 후 도보 5분</p>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <span className="font-bold text-blue-900 min-w-[80px] shrink-0">도보 이용</span>
+                    <p className="font-medium">동대구 기차역, 동대구역복합환승센터, 신세계백화점 도보 5분</p>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <span className="font-bold text-blue-900 min-w-[80px] shrink-0">자가용 이용</span>
+                    <p className="font-medium">건물 내 주차장 이용 (주차권 발급)</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 지하철 이미지 (텍스트 하단 배치) */}
+              <div className="relative w-full h-[200px] rounded-2xl overflow-hidden shadow-sm mt-8">
+                <Image 
+                  src="/subway.webp" 
+                  alt="동대구역 전경" 
+                  fill 
+                  className="object-cover" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 9. Footer */}
       <footer className="bg-[#f8f9fa] py-16 text-[14px] text-gray-500 border-t border-gray-200 pb-32 break-keep">
