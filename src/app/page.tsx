@@ -449,9 +449,9 @@ export default function Home() {
                   src="/map-capture.webp" 
                   alt="서울한스치과 오시는 길 지도" 
                   fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority // blur 방지를 위해 우선 순위 로딩 설정
-                  quality={100} // 선명도를 위해 품질을 최대로 설정
+                  quality={100} // 선명도를 위해 품질을 최대로 설정 
                 />
                 <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
                 
@@ -487,13 +487,13 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 지하철 이미지 (크기 원복 h-[200px], overflow-hidden 및 shadow 적용) */}
-              <div className="relative w-full h-[200px] rounded-2xl overflow-hidden shadow-sm mt-8">
+              {/* 지하철 이미지 (위아래 잘림 방지 및 테두리 둥근 효과 제거) */}
+              <div className="relative w-full h-[250px] mt-8">
                 <Image 
                   src="/subway.webp" 
                   alt="동대구역 전경" 
                   fill 
-                  className="object-cover" // 바깥 테두리 방지를 위해 object-cover 사용
+                  className="object-contain" 
                 />
               </div>
             </div>
